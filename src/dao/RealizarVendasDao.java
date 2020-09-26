@@ -9,20 +9,24 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import mapeamento.RealizarVendas;
 import utilitario.Conectar;
+import mapeamento.VendaProduto;
 
 
 public class RealizarVendasDao {
     
-    public void salvar(RealizarVendas r) {
+    public void salvar(RealizarVendas r, VendaProduto v) {
     Connection con = Conectar.getconectar();
     String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun) values (?,?,?,?,?) ";
+    String sqla = "INSERT into venda_produto (cod_ven, cod_prod) values (?,?) ";
     
-     try (PreparedStatement stm = con.prepareStatement(sql)) {
+     try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
          stm.setFloat(1, r.getValor_ven());
          stm.setString(2, r.getHora_ven());
          stm.setString(3, r.getData_ven());
          stm.setInt(4, r.getCod_cli());
          stm.setInt(5, r.getCod_fun());
+         stm.setInt(6, v.getCod_ven());
+         stm.setInt(7, v.getCod_prod());
          stm.execute();
          stm.close();
          con.close();
@@ -32,16 +36,20 @@ public class RealizarVendasDao {
      }
 }
     
-    public void atualizar(RealizarVendas r){
+    public void atualizar(RealizarVendas r, VendaProduto v){
     Connection con = Conectar.getconectar();
     String sql = "update  venda set valor_ven=?, hora_ven=?, data_ven=?, cod_cli=?, cod_fun=? where cod_ven=?";
-     try (PreparedStatement stm = con.prepareStatement(sql)) {
+    String sqla = "update  venda_produto set cod_ven=?, cod_prod=? where cod_venpro=?";
+     try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
          stm.setFloat(1, r.getValor_ven());
          stm.setString(2, r.getHora_ven());
          stm.setString(3, r.getData_ven());
          stm.setInt(4, r.getCod_cli());
          stm.setInt(5, r.getCod_fun());
          stm.setInt(6, r.getCod_ven());
+         stm.setInt(7, v.getCod_ven());
+         stm.setInt(8, v.getCod_prod());
+         stm.setInt(9, v.getCod_venpro());
          stm.executeUpdate();
          stm.close();
          con.close();
@@ -51,13 +59,15 @@ public class RealizarVendasDao {
      }
     
 }
-    public void deletar(RealizarVendas r){
+    public void deletar(RealizarVendas r, VendaProduto v){
     Connection con = Conectar.getconectar();
     String sql = "delete from venda where cod_ven=?";
-        int op = JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR "+ r.getCod_ven()+ " ?", "EXCLUSÃO", JOptionPane.YES_NO_OPTION);
+     String sqla = "delete from venda_produto where cod_venpro=?";
+        int op = JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR "+ r.getCod_ven() +" e o " + v.getCod_venpro()+ " ?", "EXCLUSÃO", JOptionPane.YES_NO_OPTION);
         if (op == JOptionPane.YES_OPTION) {
             try (PreparedStatement stm = con.prepareStatement(sql)) {
                 stm.setInt(1, r.getCod_ven()); 
+                stm.setInt(2, v.getCod_venpro()); 
                 stm.executeLargeUpdate();
                 JOptionPane.showMessageDialog(null, "Deletado com sucesso");
                 stm.close();
@@ -73,7 +83,7 @@ public class RealizarVendasDao {
     public List<RealizarVendas> listarTodos(String nome){
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listaVendas  = new ArrayList<>();
-   String sql = "Select * from vendas";
+   String sql = "Select * from venda";
    try(PreparedStatement stm = con.prepareStatement(sql)){
        ResultSet resultado = stm.executeQuery();
        while (resultado.next()) {
@@ -93,6 +103,26 @@ public class RealizarVendasDao {
        JOptionPane.showMessageDialog(null, ex.getMessage());
   }
    return listaVendas;
+  }
+    
+    public List<VendaProduto> listaTodosprod(String nome){
+   Connection con = Conectar.getconectar();
+   List <VendaProduto> listarVendas  = new ArrayList<>();
+   String sql = "Select * from venda_produto";
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           VendaProduto v = new VendaProduto();
+           v.setCod_prod(resultado.getInt("cod_prod"));
+           listarVendas.add(v);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listarVendas;
   }
     
 }

@@ -173,7 +173,9 @@ public class FormMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRealizarVendaActionPerformed
-        // TODO add your handling code here:
+        FormRealizarVendas form = new FormRealizarVendas(this, rootPaneCheckingEnabled);
+        form.setLocationRelativeTo(form);
+        form.setVisible(true);
     }//GEN-LAST:event_btRealizarVendaActionPerformed
 
     private void btCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarProdActionPerformed
