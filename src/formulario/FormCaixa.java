@@ -17,6 +17,10 @@ public class FormCaixa extends javax.swing.JDialog {
     public FormCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        float valorTotalDesp;
+        edDespesas.setText();
+        
+        
     }
 
     /**
@@ -38,16 +42,16 @@ public class FormCaixa extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         edSaldoIn = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        edReceitas = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        edDespesas = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        edLucroPrej = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        edLucro = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        edSaldoF = new javax.swing.JTextPane();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,15 +74,20 @@ public class FormCaixa extends javax.swing.JDialog {
 
         jLabel5.setText("lucro");
 
+        edSaldoIn.setEditable(false);
         jScrollPane1.setViewportView(edSaldoIn);
 
-        jScrollPane2.setViewportView(jTextPane2);
+        edReceitas.setEditable(false);
+        jScrollPane2.setViewportView(edReceitas);
 
-        jScrollPane3.setViewportView(jTextPane3);
+        edDespesas.setEditable(false);
+        jScrollPane3.setViewportView(edDespesas);
 
-        jScrollPane4.setViewportView(jTextPane4);
+        edLucroPrej.setEditable(false);
+        jScrollPane4.setViewportView(edLucroPrej);
 
-        jScrollPane5.setViewportView(jTextPane5);
+        edLucro.setEditable(false);
+        jScrollPane5.setViewportView(edLucro);
 
         jButton1.setText("Chamar Saldo final");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +96,7 @@ public class FormCaixa extends javax.swing.JDialog {
             }
         });
 
-        jScrollPane6.setViewportView(jTextPane6);
+        jScrollPane6.setViewportView(edSaldoF);
 
         jButton2.setText("Voltar");
 
@@ -217,6 +226,11 @@ public class FormCaixa extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField edData;
+    private javax.swing.JTextPane edDespesas;
+    private javax.swing.JTextPane edLucro;
+    private javax.swing.JTextPane edLucroPrej;
+    private javax.swing.JTextPane edReceitas;
+    private javax.swing.JTextPane edSaldoF;
     private javax.swing.JTextPane edSaldoIn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -232,10 +246,5 @@ public class FormCaixa extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
     // End of variables declaration//GEN-END:variables
 }
