@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package formulario;
-
+import dao.*;
+import mapeamento.*;
 /**
  *
  * @author Will Soares
@@ -17,8 +18,16 @@ public class FormCaixa extends javax.swing.JDialog {
     public FormCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+         RealizarVendasDao rdao = new RealizarVendasDao();
+         DespesasDao pdao = new DespesasDao();
         float valorTotalDesp;
-        edDespesas.setText();
+       
+        edDespesas.setText("0,00");
+        edLucro.setText("0,00");
+        edLucroPrej.setText("0,00");
+        edReceitas.setText("0,00");
+        edSaldoF.setText("0,00");
+        edSaldoIn.setText("0,00");
         
         
     }
@@ -62,16 +71,22 @@ public class FormCaixa extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Data");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Saldo Inicial");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Receitas");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Despesas");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("lucro/prejuizo");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("lucro");
 
         edSaldoIn.setEditable(false);
@@ -89,6 +104,7 @@ public class FormCaixa extends javax.swing.JDialog {
         edLucro.setEditable(false);
         jScrollPane5.setViewportView(edLucro);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Chamar Saldo final");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +114,7 @@ public class FormCaixa extends javax.swing.JDialog {
 
         jScrollPane6.setViewportView(edSaldoF);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,10 +136,8 @@ public class FormCaixa extends javax.swing.JDialog {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)

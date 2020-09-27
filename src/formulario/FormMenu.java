@@ -39,6 +39,11 @@ public class FormMenu extends javax.swing.JFrame {
 
         btControlarCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cashier2_118191.png"))); // NOI18N
         btControlarCaixa.setText("Controlar Caixa");
+        btControlarCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btControlarCaixaActionPerformed(evt);
+            }
+        });
 
         btCadastrarForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ic-vendor_97612.png"))); // NOI18N
         btCadastrarForn.setText("Cadastrar Fornecedor");
@@ -231,6 +236,13 @@ public class FormMenu extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btPedirMercadoriaActionPerformed
+
+    private void btControlarCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btControlarCaixaActionPerformed
+        
+    FormCaixa form = new FormCaixa(this, rootPaneCheckingEnabled);
+        form.setLocationRelativeTo(form);
+        form.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btControlarCaixaActionPerformed
 
     /**
      * @param args the command line arguments
