@@ -17,7 +17,7 @@ public class RealizarVendasDao {
     public void salvar(RealizarVendas r, VendaProduto v) {
     Connection con = Conectar.getconectar();
     String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun) values (?,?,?,?,?) ";
-    String sqla = "INSERT into venda_produto (cod_ven, cod_prod) values (?,?) ";
+    String sqla = "INSERT into venda_produto (teste_prod) values (1) ";
     
      try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
          stm.setFloat(1, r.getValor_ven());
@@ -25,10 +25,10 @@ public class RealizarVendasDao {
          stm.setString(3, r.getData_ven());
          stm.setInt(4, r.getCod_cli());
          stm.setInt(5, r.getCod_fun());
-         stm.setInt(6, v.getCod_ven());
-         stm.setInt(7, v.getCod_prod());
          stm.execute();
+         stm2.execute();
          stm.close();
+         stm2.close();
          con.close();
          JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
      }catch(Exception ex){
@@ -39,7 +39,7 @@ public class RealizarVendasDao {
     public void atualizar(RealizarVendas r, VendaProduto v){
     Connection con = Conectar.getconectar();
     String sql = "update  venda set valor_ven=?, hora_ven=?, data_ven=?, cod_cli=?, cod_fun=? where cod_ven=?";
-    String sqla = "update  venda_produto set cod_ven=?, cod_prod=? where cod_venpro=?";
+    String sqla = "update  venda_produto set teste_prod=? where cod_venpro=?";
      try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
          stm.setFloat(1, r.getValor_ven());
          stm.setString(2, r.getHora_ven());
@@ -47,11 +47,11 @@ public class RealizarVendasDao {
          stm.setInt(4, r.getCod_cli());
          stm.setInt(5, r.getCod_fun());
          stm.setInt(6, r.getCod_ven());
-         stm.setInt(7, v.getCod_ven());
-         stm.setInt(8, v.getCod_prod());
-         stm.setInt(9, v.getCod_venpro());
+         stm2.setInt(1, v.getTeste_prod());
          stm.executeUpdate();
+         stm2.executeUpdate();
          stm.close();
+         stm2.close();
          con.close();
          JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
      }catch(Exception ex){
@@ -65,12 +65,14 @@ public class RealizarVendasDao {
      String sqla = "delete from venda_produto where cod_venpro=?";
         int op = JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR "+ r.getCod_ven() +" e o " + v.getCod_venpro()+ " ?", "EXCLUSÃO", JOptionPane.YES_NO_OPTION);
         if (op == JOptionPane.YES_OPTION) {
-            try (PreparedStatement stm = con.prepareStatement(sql)) {
+            try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
                 stm.setInt(1, r.getCod_ven()); 
-                stm.setInt(2, v.getCod_venpro()); 
+                stm2.setInt(2, v.getCod_venpro()); 
                 stm.executeLargeUpdate();
+                stm2.executeLargeUpdate();
                 JOptionPane.showMessageDialog(null, "Deletado com sucesso");
                 stm.close();
+                stm2.close();
                 con.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "error" + ex.getMessage());

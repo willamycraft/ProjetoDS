@@ -3,7 +3,7 @@ package mapeamento;
 
 
 public class VendaProduto {
-    private int cod_venpro, cod_ven, cod_prod;
+    private int cod_venpro, cod_ven, cod_prod, teste_prod;
 
     public int getCod_venpro() {
         return cod_venpro;
@@ -27,6 +27,14 @@ public class VendaProduto {
 
     public void setCod_prod(int cod_prod) {
         this.cod_prod = cod_prod;
+    }
+
+    public int getTeste_prod() {
+        return teste_prod;
+    }
+
+    public void setTeste_prod(int teste_prod) {
+        this.teste_prod = teste_prod;
     }
     
 }
