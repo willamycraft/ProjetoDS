@@ -146,7 +146,7 @@ public class FormDespesas extends javax.swing.JDialog {
                 .addGap(55, 55, 55))
         );
 
-        jTabbedPane1.addTab("Cadastrar Funcionario", jPanel1);
+        jTabbedPane1.addTab("Cadastrar Despesas", jPanel1);
 
         jLabel1.setText("PESQUISAR:");
 
@@ -231,7 +231,7 @@ public class FormDespesas extends javax.swing.JDialog {
                 .addGap(0, 0, 0))
         );
 
-        jTabbedPane1.addTab("Listar Funcionario", jPanel2);
+        jTabbedPane1.addTab("Listar Despesas", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
