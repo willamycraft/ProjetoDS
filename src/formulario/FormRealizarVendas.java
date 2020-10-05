@@ -354,14 +354,16 @@ public class FormRealizarVendas extends javax.swing.JDialog {
 
     private void btRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRealizarActionPerformed
         RealizarVendas r = new RealizarVendas();
-        VendaProduto p = new VendaProduto();
+  
         r.setValor_ven(Float.parseFloat(edValor.getText()));
         r.setHora_ven(edHora.getText());
         r.setData_ven(edData.getText());
         r.setCod_cli(Integer.parseInt(edIdCliente.getText()));
         r.setCod_fun(Integer.parseInt(edIdFuncionario.getText()));
+         r.setCod_prod(Integer.parseInt(edProduto.getText()));
+         
         RealizarVendasDao rdao = new RealizarVendasDao();
-        rdao.salvar(r, p);
+        rdao.salvar(r);
         preencherTabela();
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btRealizarActionPerformed

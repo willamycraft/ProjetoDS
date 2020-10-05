@@ -14,21 +14,24 @@ import mapeamento.VendaProduto;
 
 public class RealizarVendasDao {
     
-    public void salvar(RealizarVendas r, VendaProduto v) {
+    public void salvar(RealizarVendas r) {
     Connection con = Conectar.getconectar();
-    String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun) values (?,?,?,?,?) ";
-    String sqla = "INSERT into venda_produto (teste_prod) values (1) ";
+    String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun,cod_prod) values (?,?,?,?,?,?) ";
+
     
-     try (PreparedStatement stm = con.prepareStatement(sql); PreparedStatement stm2 = con.prepareStatement(sqla)) {
+     try (PreparedStatement stm = con.prepareStatement(sql); ) {
          stm.setFloat(1, r.getValor_ven());
          stm.setString(2, r.getHora_ven());
          stm.setString(3, r.getData_ven());
          stm.setInt(4, r.getCod_cli());
          stm.setInt(5, r.getCod_fun());
+         stm.setInt(6, r.getCod_prod());
+  
+          
          stm.execute();
-         stm2.execute();
+      
          stm.close();
-         stm2.close();
+       
          con.close();
          JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
      }catch(Exception ex){
