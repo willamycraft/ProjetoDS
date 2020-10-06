@@ -103,6 +103,36 @@ public class ClienteDao {
   }
    return listacliente;
   }
+    
+    public List<Cliente> BuscarNome(String nome){
+   Connection con = Conectar.getconectar();
+   List <Cliente> listacliente  = new ArrayList<>();
+   String sql = "Select * from cliente where nome_cli like'"+nome+"%'";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+     
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           Cliente c = new Cliente();
+           c.setCod_cli(resultado.getInt("cod_cli"));
+           c.setNome_cli(resultado.getString("nome_cli"));
+           c.setCpf_cli(resultado.getString("cpf_cli"));
+           c.setRg_cli(resultado.getString("rg_cli"));
+           c.setSexo_cli(resultado.getString("sexo_cli"));
+           c.setDatanasc_cli(resultado.getString("datanasc_cli"));
+           c.setEndereco_cli(resultado.getString("endereco_cli"));
+           c.setTelefone_cli(resultado.getString("telefone_cli"));
+           c.setEmail_cli(resultado.getString("email_cli"));
+            listacliente.add(c);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listacliente;
+  }
   
 }
 
