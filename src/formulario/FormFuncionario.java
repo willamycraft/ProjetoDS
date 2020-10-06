@@ -300,6 +300,11 @@ public class FormFuncionario extends javax.swing.JDialog {
                 edPesquisarActionPerformed(evt);
             }
         });
+        edPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                edPesquisarKeyPressed(evt);
+            }
+        });
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -559,22 +564,16 @@ public class FormFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
-
-
-
-          
-                preencherTabela2(edPesquisar.getText());
-
-
+                 preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_edPesquisarActionPerformed
 
     private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-
-         
-                preencherTabela2(edPesquisar.getText());
-
-
+                 preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_btPesquisaActionPerformed
+
+    private void edPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarKeyPressed
+                 preencherTabela2(edPesquisar.getText());
+    }//GEN-LAST:event_edPesquisarKeyPressed
        public void preencherTabela(){
         FuncionarioDao fdao = new FuncionarioDao();
         List<Funcionario> lista = fdao.listarTodos("");
