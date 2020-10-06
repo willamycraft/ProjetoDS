@@ -241,6 +241,12 @@ public class FormFuncionario extends javax.swing.JDialog {
 
         jLabel1.setText("PESQUISAR:");
 
+        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edPesquisarActionPerformed(evt);
+            }
+        });
+
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -281,6 +287,11 @@ public class FormFuncionario extends javax.swing.JDialog {
         });
 
         btPesquisa.setText("...");
+        btPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -455,9 +466,37 @@ public class FormFuncionario extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Selecione uma linha!");
         }
     }//GEN-LAST:event_btExcluirActionPerformed
+
+    private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
+
+
+
+          
+                preencherTabela2(edPesquisar.getText());
+
+
+    }//GEN-LAST:event_edPesquisarActionPerformed
+
+    private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
+
+         
+                preencherTabela2(edPesquisar.getText());
+
+
+    }//GEN-LAST:event_btPesquisaActionPerformed
        public void preencherTabela(){
         FuncionarioDao fdao = new FuncionarioDao();
         List<Funcionario> lista = fdao.listarTodos("");
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        modelo.setRowCount(0);
+        for (Funcionario f : lista) {
+            modelo.addRow(new Object[]{f.getCod_fun(),f.getNome_fun(),f.getCpf_fun(), f.getRg_fun(), f.getEndereço_fun(),f.getTelefone_fun(), f.getEmail_fun() , f.getFuncao_fun(), f.getDepartamento_fun()});
+        }
+}
+       
+       public void preencherTabela2(String nome){
+        FuncionarioDao fdao = new FuncionarioDao();
+        List<Funcionario> lista = fdao.BuscarNome(nome);
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setRowCount(0);
         for (Funcionario f : lista) {

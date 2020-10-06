@@ -136,4 +136,40 @@ String sql = "select * from funcionario where cpf_fun=? and senha_fun = MD5(?)";
   }   
 return f;
 }
+  
+
+      
+public List<Funcionario> BuscarNome(String nome){
+   Connection con = Conectar.getconectar();
+   List <Funcionario> listafuncionario  = new ArrayList<>();
+   String sql = "Select * from funcionario where nome_fun like'"+nome+"%'";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+     
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           Funcionario f = new Funcionario();
+           f.setCod_fun(resultado.getInt("cod_fun"));
+           f.setNome_fun(resultado.getString("nome_fun"));
+           f.setCpf_fun(resultado.getString("cpf_fun"));
+           f.setRg_fun(resultado.getString("rg_fun"));
+           f.setEndereço_fun(resultado.getString("endereço_fun"));
+           f.setTelefone_fun(resultado.getString("telefone_fun"));
+           f.setEmail_fun(resultado.getString("email_fun"));
+           f.setFuncao_fun(resultado.getString("funcao_fun"));
+           f.setDepartamento_fun(resultado.getString("departamento_fun"));
+           listafuncionario.add(f);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listafuncionario;
+  }
+      
+      
 }
+  
+
