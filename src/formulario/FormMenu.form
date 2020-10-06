@@ -189,40 +189,40 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbFunc" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btReceberCAPrazo" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="btPedirMercadoria" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="btEmitirRelatorios" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="btReceberCAPrazo" pref="220" max="32767" attributes="0"/>
+                          <Component id="btPedirMercadoria" pref="220" max="32767" attributes="0"/>
+                          <Component id="btEmitirRelatorios" pref="220" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btCadastrarFunc" min="-2" pref="220" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btCadastrarForn" min="-2" pref="220" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btRealizarVenda" max="32767" attributes="0"/>
-                                  <Component id="btCadastrarDespesas" pref="220" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btCadastrarProd" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="btCadastrarCliente" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="btControlarCaixa" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btCadastrarFunc" min="-2" pref="220" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btCadastrarForn" min="-2" pref="220" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbFunc" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btRealizarVenda" max="32767" attributes="0"/>
+                          <Component id="btCadastrarDespesas" pref="220" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btCadastrarProd" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="btCadastrarCliente" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="btControlarCaixa" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
           </Group>
