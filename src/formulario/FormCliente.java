@@ -253,6 +253,12 @@ public class FormCliente extends javax.swing.JDialog {
 
         jLabel1.setText("PESQUISAR:");
 
+        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edPesquisarActionPerformed(evt);
+            }
+        });
+
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -438,6 +444,10 @@ public class FormCliente extends javax.swing.JDialog {
         cbSexo.setSelectedItem(-1);
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_btNovoActionPerformed
+
+    private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edPesquisarActionPerformed
 
     public void preencherTabela(){
         ClienteDao cdao = new ClienteDao();
