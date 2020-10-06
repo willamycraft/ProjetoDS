@@ -319,6 +319,7 @@ public class FormFuncionario extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabela);
 
+        btNovo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1490793813-user-interface20_82328 (1).png"))); // NOI18N
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -327,6 +328,7 @@ public class FormFuncionario extends javax.swing.JDialog {
             }
         });
 
+        btEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/353430-checkbox-edit-pen-pencil_107516.png"))); // NOI18N
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -335,6 +337,7 @@ public class FormFuncionario extends javax.swing.JDialog {
             }
         });
 
+        btExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btExcluir.setText("Excluir");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
