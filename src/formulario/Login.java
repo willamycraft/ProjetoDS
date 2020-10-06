@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 51));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Microsoft Himalaya", 1, 48)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Login de Acesso");
 
@@ -80,7 +80,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         try {
@@ -141,7 +141,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCanc, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,7 +154,7 @@ public class Login extends javax.swing.JFrame {
         Funcionario f = fdao.Login(edCpf.getText(), edSenha.getText());
 
         if (f.getCpf_fun()!= null ) {
-            FormMenu frame = new FormMenu();
+            FormMenu frame = new FormMenu(f);
             frame.setLocationRelativeTo(frame);
             frame.setVisible(true);
             this.dispose();
