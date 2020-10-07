@@ -107,6 +107,7 @@ public class FormCliente extends javax.swing.JDialog {
         jPanel1.add(edDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 97, 30));
         jPanel1.add(edEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 399, 30));
 
+        btFechar.setBackground(new java.awt.Color(255, 0, 0));
         btFechar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
         btFechar.setText("Sair");
@@ -137,6 +138,7 @@ public class FormCliente extends javax.swing.JDialog {
         });
         jPanel1.add(btAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 120, 56));
 
+        btCancelar.setBackground(new java.awt.Color(255, 255, 0));
         btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1492790846-9cancel_84247.png"))); // NOI18N
         btCancelar.setText("Cancelar");
@@ -533,14 +535,10 @@ public class FormCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

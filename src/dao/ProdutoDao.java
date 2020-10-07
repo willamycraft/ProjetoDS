@@ -88,4 +88,31 @@ public class ProdutoDao {
   }
    return listaProduto;
   }
+      
+      
+      public List<Produto> BuscarNome(String nome){
+   Connection con = Conectar.getconectar();
+   List <Produto> listaproduto  = new ArrayList<>();
+   String sql = "Select * from produto where nome_prod like'"+nome+"%'";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+     
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           Produto p = new Produto();
+           p.setCod_prod(resultado.getInt("cod_prod"));
+           p.setNome_prod(resultado.getString("nome_prod"));
+           p.setValor_prod(resultado.getFloat("valor_prod"));
+           p.setQuant_prod(resultado.getInt("quant_prod"));
+           p.setCod_for_fk(resultado.getInt("cod_for_fk"));
+           listaproduto.add(p);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listaproduto;
+  }
 }

@@ -101,6 +101,7 @@ public class FormFuncionario extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("FUNÇÃO:");
 
+        btCancelar.setBackground(new java.awt.Color(255, 255, 0));
         btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1492790846-9cancel_84247.png"))); // NOI18N
         btCancelar.setText("Cancelar");
@@ -136,6 +137,7 @@ public class FormFuncionario extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("NOME:");
 
+        btExit.setBackground(new java.awt.Color(255, 0, 0));
         btExit.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
         btExit.setText("Sair");
