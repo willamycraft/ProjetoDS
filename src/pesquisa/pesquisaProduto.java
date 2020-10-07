@@ -188,6 +188,7 @@ public class pesquisaProduto extends javax.swing.JDialog {
         p.setCod_prod(Integer.parseInt(tabela.getValueAt(indice1, 0).toString()));
         p.setNome_prod(tabela.getValueAt(indice1, 1).toString());
         p.setValor_prod (Float.parseFloat(tabela.getValueAt(indice1, 2).toString()));
+        
         this.dispose();
     }//GEN-LAST:event_tabelaMouseClicked
 

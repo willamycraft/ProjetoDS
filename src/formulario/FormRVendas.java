@@ -228,11 +228,11 @@ public class FormRVendas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Produto", "Quantidade", "Valor Total"
+                "ID", "Produto", "Quantidade", "Valor", "Valor Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -253,6 +253,11 @@ public class FormRVendas extends javax.swing.JFrame {
         btDel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btDel.setText("Excluir");
+        btDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDelActionPerformed(evt);
+            }
+        });
 
         spQuant.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
@@ -662,9 +667,26 @@ public class FormRVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btPProdActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
+        if (Integer.parseInt(spQuant.getValue().toString())!= 0) {
+       float valortotal = Float.parseFloat(edValorUn.getText().toString()) * Integer.parseInt(spQuant.getValue().toString());
        DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
-       modelo.addRow(new Object[]{edIDProd.getText(),edNomeProd.getText(), spQuant.getValue(), edValorUn.getText()});
+       
+       modelo.addRow(new Object[]{edIDProd.getText(),edNomeProd.getText(), spQuant.getValue(),edValorUn.getText() , valortotal});
+       spQuant.setValue(0);
+       edIDProd.setText(null);
+       edNomeProd.setText(null);
+       edValorUn.setText(null);
+        }else {
+            JOptionPane.showMessageDialog(null, "Adicione uma quantidade!");
+            
+        }
+        
+        
     }//GEN-LAST:event_btAddActionPerformed
+
+    private void btDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDelActionPerformed
+
+    }//GEN-LAST:event_btDelActionPerformed
      public void preencherTabela(){
          RealizarVendasDao rdao = new RealizarVendasDao();
         List<RealizarVendas> lista = rdao.listarTodos("");
