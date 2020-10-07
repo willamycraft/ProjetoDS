@@ -81,6 +81,7 @@ public class FormRVendas extends javax.swing.JFrame {
         edNomeCli = new javax.swing.JTextField();
         btPCliente = new javax.swing.JButton();
         btPProd = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
@@ -272,6 +273,8 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         });
 
+        jTextField2.setText("jTextField2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -351,7 +354,10 @@ public class FormRVendas extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
-                                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47))
                             .addComponent(jSeparator2)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -388,7 +394,8 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -537,19 +544,19 @@ public class FormRVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_edIDCliActionPerformed
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
-        /*  RealizarVendas r = new RealizarVendas();
-
-        r.setValor_ven(Float.parseFloat(edValor.getText()));
+          RealizarVendas r = new RealizarVendas();
+          Funcionario f = new Funcionario();
+        r.setValor_ven(Float.parseFloat(edValorUn.getText()));
         r.setHora_ven(edHora.getText());
         r.setData_ven(edData.getText());
-        r.setCod_cli(Integer.parseInt(edIdCliente.getText()));
-        r.setCod_fun(Integer.parseInt(edIdFuncionario.getText()));
-        r.setCod_prod(Integer.parseInt(edProduto.getText()));
+        r.setCod_cli(Integer.parseInt(edIDCli.getText()));
+        r.setCod_fun(Integer.parseInt(jTextField2.getText()));
+        r.setCod_prod(Integer.parseInt(edIDProd.getText()));
 
         RealizarVendasDao rdao = new RealizarVendasDao();
         rdao.salvar(r);
         preencherTabela();
-        jTabbedPane1.setSelectedIndex(1);*/
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btFinalizarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
@@ -771,6 +778,7 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JSpinner spQuant;
     private javax.swing.JTable tabela;
     private javax.swing.JTable tabela1;

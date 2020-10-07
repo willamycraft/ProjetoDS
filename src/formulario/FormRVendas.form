@@ -146,6 +146,9 @@
                                       <Component id="btCancelar" min="-2" pref="125" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Component id="btAtualizar" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane3" alignment="0" pref="570" max="32767" attributes="0"/>
@@ -194,6 +197,7 @@
                           <Component id="btCancelar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btFinalizar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btAtualizar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -540,6 +544,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPProdActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField2"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
