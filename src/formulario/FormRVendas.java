@@ -662,8 +662,8 @@ public class FormRVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btPProdActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
-       preencherTabela3();
-       
+       DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
+       modelo.addRow(new Object[]{edIDProd.getText(),edNomeProd.getText(), spQuant.getValue(), edValorUn.getText()});
     }//GEN-LAST:event_btAddActionPerformed
      public void preencherTabela(){
          RealizarVendasDao rdao = new RealizarVendasDao();
@@ -685,15 +685,7 @@ public class FormRVendas extends javax.swing.JFrame {
          }
 }
       
-               public void preencherTabela3(){
-        ProdutoDao pdao = new ProdutoDao();
-        List<Produto> lista = pdao.listarTodos("");
-        DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
-        modelo.setRowCount(0);
-        for (Produto p : lista) {
-            modelo.addRow(new Object[]{edIDProd.getText(),edNomeProd.getText(), spQuant.getValue(), edValorUn.getText()});
-        }
-}
+
                
     /**
      * @param args the command line arguments
