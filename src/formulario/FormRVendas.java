@@ -8,7 +8,6 @@ package formulario;
 import dao.FuncionarioDao;
 import dao.ProdutoDao;
 import dao.RealizarVendasDao;
-import dao.VendaProdutoDao;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

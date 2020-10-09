@@ -13,13 +13,14 @@ import utilitario.Conectar;
 public class MercadoriasDao {
     public void salvar(Mercadorias d) {
     Connection con = Conectar.getconectar();
-String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_fun_fk) values (?,?,?,?) ";
+String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_fk,cod_fun_fk) values (?,?,?,?) ";
     
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setFloat(1, d.getValor_merc());
          stm.setString(2, d.getData_merc());
          stm.setString(3, d.getHora_merc());
-         stm.setInt(4, d.getCod_fun_fk());
+               stm.setInt(4, d.getCod_prod_fk());
+         stm.setInt(5, d.getCod_fun_fk());
          stm.execute();
          stm.close();
          con.close();
@@ -31,13 +32,17 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_fun_f
     
      public void atualizar(Mercadorias d){
     Connection con = Conectar.getconectar();
-    String sql = "update Mercadorias set valor_merc,data_merc,hora_merc, cod_fun_fk where cod_merc=?";
+    String sql = "update Mercadorias set valor_merc,data_merc,hora_merc, cod_prod_fk,cod_fun_fk where cod_merc=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setFloat(1, d.getValor_merc());
          stm.setString(2, d.getData_merc());
          stm.setString(3, d.getHora_merc());
-         stm.setInt(4, d.getCod_fun_fk());
-         stm.setInt(5, d.getCod_merc());
+         
+                           stm.setInt(4, d.getCod_prod_fk());
+
+         stm.setInt(5, d.getCod_fun_fk());
+
+         stm.setInt(6, d.getCod_merc());
 
       
          stm.executeUpdate();
@@ -78,8 +83,8 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_fun_f
               d.setValor_merc(resultado.getFloat("valor_merc"));
            d.setData_merc(resultado.getString("data_merc"));
            d.setHora_merc(resultado.getString("cod_merc"));
+                         d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
               d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));
-
            listaMercadorias.add(d);
        }
           stm.close();
@@ -90,4 +95,26 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_fun_f
   }
    return listaMercadorias;
   }
+      
+      
+      public List<Mercadorias> listaTodosprod(String nome){
+   Connection con = Conectar.getconectar();
+   List <Mercadorias> listarMercadorias  = new ArrayList<>();
+   String sql = "Select * from venda_produto";
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           Mercadorias v = new Mercadorias();
+           v.setCod_fun_fk(resultado.getInt("cod_prod"));
+           listarMercadorias.add(v);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listarMercadorias;
+  }
+    
 }

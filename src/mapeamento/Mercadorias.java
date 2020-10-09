@@ -12,8 +12,11 @@ package mapeamento;
 public class Mercadorias {
     
     private float valor_merc;
-    private int cod_merc,cod_fun_fk;
+    private int cod_merc,cod_fun_fk,cod_prod_fk;
   private  String data_merc,hora_merc;
+  
+  
+  
     public float getValor_merc() {
         return valor_merc;
     }
@@ -53,6 +56,14 @@ public class Mercadorias {
 
     public void setHora_merc(String hora_merc) {
         this.hora_merc = hora_merc;
+    }
+
+    public int getCod_prod_fk() {
+        return cod_prod_fk;
+    }
+
+    public void setCod_prod_fk(int cod_prod_fk) {
+        this.cod_prod_fk = cod_prod_fk;
     }
     
     
