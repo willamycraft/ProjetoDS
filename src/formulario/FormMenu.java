@@ -49,6 +49,7 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         mCaixa = new javax.swing.JMenuItem();
         mContas = new javax.swing.JMenuItem();
+        mVendas = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mEst = new javax.swing.JMenuItem();
         mPed = new javax.swing.JMenuItem();
@@ -241,6 +242,14 @@ public class FormMenu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(mContas);
+
+        mVendas.setText("Vendas");
+        mVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mVendasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mVendas);
 
         jMenuBar1.add(jMenu2);
 
@@ -490,6 +499,12 @@ public class FormMenu extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(mCtt, "willianotenio@gmail.com");
     }//GEN-LAST:event_mCttActionPerformed
 
+    private void mVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mVendasActionPerformed
+        FormRVendas form = new FormRVendas ();
+        form.setLocationRelativeTo(form);
+        form.setVisible(true);
+    }//GEN-LAST:event_mVendasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -529,5 +544,6 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mPed;
     private javax.swing.JMenuItem mProd;
     private javax.swing.JMenuItem mSair;
+    private javax.swing.JMenuItem mVendas;
     // End of variables declaration//GEN-END:variables
 }

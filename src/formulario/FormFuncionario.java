@@ -326,6 +326,7 @@ public class FormFuncionario extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabela);
 
+        btNovo.setBackground(new java.awt.Color(0, 153, 51));
         btNovo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1490793813-user-interface20_82328 (1).png"))); // NOI18N
         btNovo.setText("Novo");
@@ -344,6 +345,7 @@ public class FormFuncionario extends javax.swing.JDialog {
             }
         });
 
+        btExcluir.setBackground(new java.awt.Color(255, 0, 0));
         btExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btExcluir.setText("Excluir");
