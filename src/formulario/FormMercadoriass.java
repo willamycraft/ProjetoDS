@@ -1,7 +1,6 @@
 
 package formulario;
 import dao.MercadoriasDao;
-import dao.ProdutoDao;
 import dao.RealizarVendasDao;
 import java.util.Date;
 import java.util.List;
@@ -536,12 +535,12 @@ preencherOutraTabela();
 }
      
      public void preencherOutraTabela(){
-         ProdutoDao pdao= new ProdutoDao();
-        List<Produto> lista = pdao.listarTodos("");
+         RealizarVendasDao rdao = new RealizarVendasDao();
+        List<RealizarVendas> lista = rdao.listaTodosprod("");
         DefaultTableModel modelo = (DefaultTableModel) outraTabela.getModel();
         modelo.setRowCount(0);
-         for (Produto v  : lista) {
-             modelo.addRow(new Object[]{v.getNome_prod()});
+         for (RealizarVendas v  : lista) {
+             modelo.addRow(new Object[]{v.getCod_prod()});
          }
 }
       
