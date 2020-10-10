@@ -1,6 +1,7 @@
 
 package formulario;
 import dao.MercadoriasDao;
+import dao.ProdutoDao;
 import dao.RealizarVendasDao;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,7 @@ public class FormMercadoriass extends javax.swing.JFrame {
         initComponents();
         
                 preencherTabela();
-
+preencherOutraTabela();
     }
 
     /**
@@ -535,12 +536,12 @@ public class FormMercadoriass extends javax.swing.JFrame {
 }
      
      public void preencherOutraTabela(){
-         RealizarVendasDao rdao = new RealizarVendasDao();
-        List<RealizarVendas> lista = rdao.listaTodosprod("");
+         ProdutoDao pdao= new ProdutoDao();
+        List<Produto> lista = pdao.listarTodos("");
         DefaultTableModel modelo = (DefaultTableModel) outraTabela.getModel();
         modelo.setRowCount(0);
-         for (VendaProduto v  : lista) {
-             modelo.addRow(new Object[]{v.get()});
+         for (Produto v  : lista) {
+             modelo.addRow(new Object[]{v.getNome_prod()});
          }
 }
       
