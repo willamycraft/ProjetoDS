@@ -73,8 +73,9 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
    Connection con = Conectar.getconectar();
    List <Mercadorias> listaMercadorias  = new ArrayList<>();
    String sql = "Select * from Mercadorias";
-   
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
+
+   try(PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)){
        ResultSet resultado = stm.executeQuery();
        while (resultado.next()) {
            Mercadorias d = new Mercadorias();
@@ -97,12 +98,12 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
   }
       
       
-      public List<Mercadorias> ListarNomeProduto(String nome){
+     /* public List<Mercadorias> ListarNomeProduto(String nome){
    Connection con = Conectar.getconectar();
    List <Mercadorias> listaMercadorias  = new ArrayList<>();
-   String sql = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
+   String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
    
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   try(PreparedStatement stm = con.prepareStatement(sql2)){
        ResultSet resultado = stm.executeQuery();
        while (resultado.next()) {
            Mercadorias d = new Mercadorias();
@@ -120,9 +121,9 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
   }
     
       
+      */
       
-      
-      
+   
       
       
       
