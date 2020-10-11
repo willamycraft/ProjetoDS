@@ -10,15 +10,17 @@ import mapeamento.Funcionario;
  *
  * @author Will Soares
  */
+
 public class FormMenu extends javax.swing.JFrame {
 
+    Funcionario func;
     /**
      * Creates new form FormMenu
      */
     public FormMenu(Funcionario f) {
         initComponents();
         lbFunc.setText(f.getNome_fun());
-        
+        func = f;
     }
 
    
@@ -409,7 +411,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btReceberCAPrazoActionPerformed
 
     private void btRealizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRealizarVendaActionPerformed
-        FormRVendas form = new FormRVendas ();
+        FormRVendas form = new FormRVendas (func);
         form.setLocationRelativeTo(form);
         form.setVisible(true);
     }//GEN-LAST:event_btRealizarVendaActionPerformed
@@ -500,7 +502,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mCttActionPerformed
 
     private void mVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mVendasActionPerformed
-        FormRVendas form = new FormRVendas ();
+        FormRVendas form = new FormRVendas (func);
         form.setLocationRelativeTo(form);
         form.setVisible(true);
     }//GEN-LAST:event_mVendasActionPerformed
