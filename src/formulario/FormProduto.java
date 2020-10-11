@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mapeamento.Fornecedor;
 import mapeamento.Produto;
+import pesquisa.pesquisaFornecedor;
 
 
 public class FormProduto extends javax.swing.JDialog {
@@ -43,9 +44,12 @@ public class FormProduto extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         edQuantidade = new javax.swing.JTextField();
-        edFornecedor = new javax.swing.JTextField();
         edId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btFornecedor = new javax.swing.JButton();
+        edRazãoSocial = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        edCnpj = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -98,6 +102,32 @@ public class FormProduto extends javax.swing.JDialog {
 
         jLabel2.setText("ID:");
 
+        btFornecedor.setText("...");
+        btFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFornecedorActionPerformed(evt);
+            }
+        });
+
+        edRazãoSocial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edRazãoSocialActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("CNPJ:");
+
+        try {
+            edCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####.##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        edCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edCnpjActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,42 +136,45 @@ public class FormProduto extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(429, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)))
+                        .addGap(52, 52, 52)
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(edValor, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(edId, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                                 .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(56, 56, 56))))
+                        .addGap(56, 56, 56))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(edCnpj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(edRazãoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,11 +191,16 @@ public class FormProduto extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(edQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(edFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                    .addComponent(edRazãoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFornecedor))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,7 +338,6 @@ public class FormProduto extends javax.swing.JDialog {
         edProduto.setText("");
         edQuantidade.setText("");
         edValor.setText("");
-        edFornecedor.setText("");
         jTabbedPane1.setSelectedIndex(0);
         
     }//GEN-LAST:event_btNovoActionPerformed
@@ -311,7 +348,6 @@ public class FormProduto extends javax.swing.JDialog {
         edProduto.setText("");
         edQuantidade.setText("");
         edValor.setText("");
-        edFornecedor.setText("");
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
@@ -320,7 +356,6 @@ public class FormProduto extends javax.swing.JDialog {
         p.setNome_prod(edProduto.getText());
         p.setQuant_prod(Integer.parseInt(edQuantidade.getText()));
         p.setValor_prod(Float.parseFloat(edValor.getText()));
-        p.setCod_for_fk(Integer.parseInt(edFornecedor.getText()));
         ProdutoDao pdao = new ProdutoDao();
         pdao.atualizar(p);
          jTabbedPane1.setSelectedIndex(1);
@@ -336,7 +371,6 @@ public class FormProduto extends javax.swing.JDialog {
         edProduto.setText(tabela.getValueAt(opcao, 0).toString());
         edQuantidade.setText(tabela.getValueAt(opcao, 1).toString());
         edValor.setText(tabela.getValueAt(opcao, 2).toString());
-        edFornecedor.setText(tabela.getValueAt(opcao, 3).toString());
          jTabbedPane1.setSelectedIndex(0);
          btAtualizar.setVisible(true);
          btSalvar.setVisible(false);
@@ -349,7 +383,6 @@ public class FormProduto extends javax.swing.JDialog {
         p.setNome_prod(edProduto.getText());
         p.setQuant_prod(Integer.parseInt(edQuantidade.getText()));
         p.setValor_prod(Float.parseFloat(edValor.getText()));
-        p.setCod_for_fk(Integer.parseInt(edFornecedor.getText()));
         ProdutoDao pdao = new ProdutoDao();
         pdao.salvar(p);
         preencherTabela();
@@ -370,13 +403,33 @@ public class FormProduto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btApagarActionPerformed
 
+    private void btFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedorActionPerformed
+        pesquisaFornecedor form = new pesquisaFornecedor();
+        form.setLocationRelativeTo(form);
+        form.setVisible(rootPaneCheckingEnabled);
+        
+        Fornecedor f = form.getF();
+        edId.setText(""+f.getCod_for());
+        edRazãoSocial.setText(""+f.getNomeFanta_for());
+        edCnpj.setText(""+f.getCnpj_for());
+       
+    }//GEN-LAST:event_btFornecedorActionPerformed
+
+    private void edRazãoSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edRazãoSocialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edRazãoSocialActionPerformed
+
+    private void edCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edCnpjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edCnpjActionPerformed
+
     public void preencherTabela(){
         ProdutoDao pdao = new ProdutoDao();
         List<Produto> lista = pdao.listarTodos("");
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setRowCount(0);
         for (Produto p : lista) {
-            modelo.addRow(new Object[]{p.getCod_prod(),p.getNome_prod(),p.getValor_prod(), p.getQuant_prod(), p.getCod_for_fk()});
+            modelo.addRow(new Object[]{p.getCod_prod(),p.getNome_prod(),p.getValor_prod(), p.getQuant_prod()});
         }
 }
     public static void main(String args[]) {
@@ -423,14 +476,16 @@ public class FormProduto extends javax.swing.JDialog {
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btEditar;
+    private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JTextField edFornecedor;
+    private javax.swing.JFormattedTextField edCnpj;
     private javax.swing.JTextField edId;
     private javax.swing.JTextField edPesquisa;
     private javax.swing.JTextField edProduto;
     private javax.swing.JTextField edQuantidade;
+    private javax.swing.JTextField edRazãoSocial;
     private javax.swing.JTextField edValor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -438,6 +493,7 @@ public class FormProduto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

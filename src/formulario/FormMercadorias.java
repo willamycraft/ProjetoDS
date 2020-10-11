@@ -461,7 +461,7 @@ public class FormMercadorias extends javax.swing.JDialog {
 
     private void btFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncActionPerformed
 
-          pesquisaProduto form = new pesquisaProduto (this, rootPaneCheckingEnabled);
+         pesquisaProduto form = new pesquisaProduto (this, rootPaneCheckingEnabled);
         form.setLocationRelativeTo(form);
         form.setVisible(rootPaneCheckingEnabled);
 

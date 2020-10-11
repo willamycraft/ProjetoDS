@@ -106,4 +106,35 @@ public class FornecedorDao {
   }
    return listafornecedor;
   }
+    
+    public List<Fornecedor> BuscarNome(String nome){
+   Connection con = Conectar.getconectar();
+   List <Fornecedor> listafornecedor  = new ArrayList<>();
+   String sql = "Select * from fornecedor where nomefant_for like'"+nome+"%'";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+     
+       ResultSet resultado = stm.executeQuery();
+       while (resultado.next()) {
+           Fornecedor f = new Fornecedor();
+           f.setCod_for(resultado.getInt("cod_for"));
+           f.setNomeFanta_for(resultado.getString("nomeFant_for"));
+           f.setRazaoSocial_for(resultado.getString("razaoSoci_for"));
+           f.setCnpj_for(resultado.getString("cnpj_for"));
+           f.setCep_for(resultado.getString("cep_for"));
+           f.setEndereco_for(resultado.getString("ende_for"));
+           f.setTelefone_for(resultado.getString("tel_for"));
+           f.setEmail_for(resultado.getString("email_for"));
+           f.setResp_for(resultado.getString("resp_for"));
+           f.setCidade_for(resultado.getString("cidade_for"));
+           listafornecedor.add(f);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listafornecedor;
+  }
 }
