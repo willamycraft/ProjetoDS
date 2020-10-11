@@ -25,7 +25,7 @@ public class FormMercadoriass extends javax.swing.JFrame {
      */
     public FormMercadoriass() {
         initComponents();
-        
+        btAtualizar.setVisible(false);
         preencherTabela();
        // preencherTabela2();
     }
