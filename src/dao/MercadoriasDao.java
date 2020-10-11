@@ -13,13 +13,13 @@ import utilitario.Conectar;
 public class MercadoriasDao {
     public void salvar(Mercadorias d) {
     Connection con = Conectar.getconectar();
-String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_fk,cod_fun_fk) values (?,?,?,?) ";
+String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_fk,cod_fun_fk) values (?,?,?,?,?) ";
     
      try (PreparedStatement stm = con.prepareStatement(sql)) {
-         stm.setFloat(1, d.getValor_merc());
+         stm.setInt(1, d.getQuant_merc());
          stm.setString(2, d.getData_merc());
          stm.setString(3, d.getHora_merc());
-               stm.setInt(4, d.getCod_prod_fk());
+         stm.setInt(4, d.getCod_prod_fk());
          stm.setInt(5, d.getCod_fun_fk());
          stm.execute();
          stm.close();
@@ -32,16 +32,14 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_
     
      public void atualizar(Mercadorias d){
     Connection con = Conectar.getconectar();
-    String sql = "update Mercadorias set valor_merc,data_merc,hora_merc, cod_prod_fk,cod_fun_fk where cod_merc=?";
+    String sql = "update Mercadorias set quant_mec,data_merc,hora_merc, cod_prod_fk,cod_fun_fk where cod_merc=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
-         stm.setFloat(1, d.getValor_merc());
+       
+         stm.setInt(1, d.getQuant_merc());
          stm.setString(2, d.getData_merc());
          stm.setString(3, d.getHora_merc());
-         
-                           stm.setInt(4, d.getCod_prod_fk());
-
+         stm.setInt(4, d.getCod_prod_fk());
          stm.setInt(5, d.getCod_fun_fk());
-
          stm.setInt(6, d.getCod_merc());
 
       
@@ -75,16 +73,18 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_
    Connection con = Conectar.getconectar();
    List <Mercadorias> listaMercadorias  = new ArrayList<>();
    String sql = "Select * from Mercadorias";
+   
    try(PreparedStatement stm = con.prepareStatement(sql)){
        ResultSet resultado = stm.executeQuery();
        while (resultado.next()) {
            Mercadorias d = new Mercadorias();
+           
            d.setCod_merc(resultado.getInt("cod_merc"));
-              d.setValor_merc(resultado.getFloat("valor_merc"));
+           d.setQuant_merc(resultado.getInt("quant_merc"));
            d.setData_merc(resultado.getString("data_merc"));
            d.setHora_merc(resultado.getString("cod_merc"));
-                         d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
-              d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));
+           d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
+           d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));
            listaMercadorias.add(d);
        }
           stm.close();
@@ -97,16 +97,18 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_
   }
       
       
-      public List<Mercadorias> listaTodosprod(String nome){
+      public List<Mercadorias> ListarNomeProduto(String nome){
    Connection con = Conectar.getconectar();
-   List <Mercadorias> listarMercadorias  = new ArrayList<>();
-   String sql = "Select * from venda_produto";
+   List <Mercadorias> listaMercadorias  = new ArrayList<>();
+   String sql = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
+   
    try(PreparedStatement stm = con.prepareStatement(sql)){
        ResultSet resultado = stm.executeQuery();
        while (resultado.next()) {
-           Mercadorias v = new Mercadorias();
-           v.setCod_fun_fk(resultado.getInt("cod_prod"));
-           listarMercadorias.add(v);
+           Mercadorias d = new Mercadorias();
+           d.setNome_prod(resultado.getString("nome_prod"));
+           
+           listaMercadorias.add(d);
        }
           stm.close();
           con.close();
@@ -114,7 +116,21 @@ String sql = "INSERT into Mercadorias (valor_merc,data_merc,hora_merc, cod_prod_
    }catch(Exception ex){
        JOptionPane.showMessageDialog(null, ex.getMessage());
   }
-   return listarMercadorias;
+   return listaMercadorias;
   }
     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
 }
+      
+      
+      
+
