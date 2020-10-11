@@ -15,7 +15,7 @@ import mapeamento.Cliente;
 import mapeamento.Funcionario;
 import mapeamento.Produto;
 import mapeamento.RealizarVendas;
-import mapeamento.VendaProduto;
+
 import pesquisa.pesquisaCliente;
 import pesquisa.pesquisaProduto;
 /**
@@ -698,10 +698,10 @@ public class FormRVendas extends javax.swing.JFrame {
 }
       public void preencherOutraTabela(){
          RealizarVendasDao rdao = new RealizarVendasDao();
-        List<VendaProduto> lista = rdao.listaTodosprod("");
+        List<RealizarVendas> lista = rdao.listaTodosprod("");
         DefaultTableModel modelo = (DefaultTableModel) tabela2.getModel();
         modelo.setRowCount(0);
-         for (VendaProduto v  : lista) {
+         for (RealizarVendas v  : lista) {
              modelo.addRow(new Object[]{v.getCod_prod()});
          }
 }

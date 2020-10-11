@@ -12,8 +12,36 @@ package mapeamento;
 public class Mercadorias {
     
     private float valor_merc;
-    private int cod_merc,cod_fun_fk,cod_prod_fk;
-  private  String data_merc,hora_merc;
+    
+    
+    private int cod_merc,cod_fun_fk,cod_prod_fk,quant_merc;
+  private  String data_merc,hora_merc,nome_prod,nome_fun;
+
+    public String getNome_fun() {
+        return nome_fun;
+    }
+
+    public void setNome_fun(String nome_fun) {
+        this.nome_fun = nome_fun;
+    }
+
+    public String getNome_prod() {
+        return nome_prod;
+    }
+
+    public void setNome_prod(String nome_prod) {
+        this.nome_prod = nome_prod;
+    }
+
+    
+  
+    public int getQuant_merc() {
+        return quant_merc;
+    }
+
+    public void setQuant_merc(int quant_merc) {
+        this.quant_merc = quant_merc;
+    }
   
   
   

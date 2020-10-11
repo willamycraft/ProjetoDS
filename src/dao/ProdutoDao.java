@@ -14,13 +14,12 @@ public class ProdutoDao {
     
     public void salvar(Produto p) {
     Connection con = Conectar.getconectar();
-    String sql = "INSERT into Produto (nome_prod ,valor_prod, quant_prod, cod_for_fk) values (?,?,?,?) ";
+    String sql = "INSERT into Produto (nome_prod ,valor_prod,  cod_for_fk) values (?,?,?) ";
     
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setString(1, p.getNome_prod());
          stm.setFloat(2, p.getValor_prod());
-         stm.setInt(3, p.getQuant_prod());
-         stm.setInt(4, p.getCod_for_fk());
+         stm.setInt(3, p.getCod_for_fk());
          stm.execute();
          stm.close();
          con.close();
@@ -32,13 +31,12 @@ public class ProdutoDao {
     
      public void atualizar(Produto p){
     Connection con = Conectar.getconectar();
-    String sql = "update  Produto set nome_prod=?, valor_prod=?, quant_prod=?, cod_for_fk=? where cod_prod=?";
+    String sql = "update  Produto set nome_prod=?, valor_prod=?,cod_for_fk=? where cod_prod=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setString(1, p.getNome_prod());
          stm.setFloat(2, p.getValor_prod());
-         stm.setInt(3, p.getQuant_prod());
-         stm.setInt(4, p.getCod_for_fk());
-         stm.setInt(5, p.getCod_prod());
+         stm.setInt(3, p.getCod_for_fk());
+         stm.setInt(4, p.getCod_prod());
          stm.executeUpdate();
          stm.close();
          con.close();
@@ -76,7 +74,6 @@ public class ProdutoDao {
            p.setCod_prod(resultado.getInt("cod_prod"));
            p.setNome_prod(resultado.getString("nome_prod"));
            p.setValor_prod(resultado.getFloat("valor_prod"));
-           p.setQuant_prod(resultado.getInt("quant_prod"));
            p.setCod_for_fk(resultado.getInt("cod_for_fk"));
            listaProduto.add(p);
        }
@@ -103,7 +100,6 @@ public class ProdutoDao {
            p.setCod_prod(resultado.getInt("cod_prod"));
            p.setNome_prod(resultado.getString("nome_prod"));
            p.setValor_prod(resultado.getFloat("valor_prod"));
-           p.setQuant_prod(resultado.getInt("quant_prod"));
            p.setCod_for_fk(resultado.getInt("cod_for_fk"));
            listaproduto.add(p);
        }
