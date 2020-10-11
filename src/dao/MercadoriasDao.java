@@ -74,20 +74,27 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
    List <Mercadorias> listaMercadorias  = new ArrayList<>();
    String sql = "Select * from Mercadorias";
    String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
+   String sql3 = "select nome_fun from mercadorias,funcionario where cod_fun_fk = cod_fun";
 
-   try(PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)){
+   try(PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2);PreparedStatement stm3 = con.prepareStatement(sql3)){
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
-           Mercadorias d = new Mercadorias();
+       ResultSet resultado2 = stm2.executeQuery();
+       ResultSet resultado3 = stm3.executeQuery();
+      while(resultado.next() &resultado2.next() & resultado3.next()){
+         Mercadorias d = new Mercadorias();
            
            d.setCod_merc(resultado.getInt("cod_merc"));
            d.setQuant_merc(resultado.getInt("quant_merc"));
            d.setData_merc(resultado.getString("data_merc"));
            d.setHora_merc(resultado.getString("cod_merc"));
            d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
-           d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));
-           listaMercadorias.add(d);
-       }
+           d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));  
+           d.setNome_prod(resultado2.getString("nome_prod"));
+           d.setNome_fun(resultado3.getString("nome_fun"));
+
+       
+     listaMercadorias.add(d);
+   }
           stm.close();
           con.close();
       

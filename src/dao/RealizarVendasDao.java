@@ -17,7 +17,7 @@ public class RealizarVendasDao {
     public void salvar(RealizarVendas r) {
     Connection con = Conectar.getconectar();
     String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun,cod_prod) values (?,?,?,?,?,?) ";
-
+    
     
      try (PreparedStatement stm = con.prepareStatement(sql); ) {
          stm.setFloat(1, r.getValor_ven());

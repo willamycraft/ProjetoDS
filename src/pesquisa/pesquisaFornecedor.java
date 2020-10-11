@@ -42,42 +42,10 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         edPesquisar = new javax.swing.JTextField();
         btPesquisa = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOME FANTASIA", "CNPJ"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaMouseClicked(evt);
-            }
-        });
-        tabela.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tabelaKeyPressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabela);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("PESQUISAR:");
@@ -111,11 +79,7 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(119, 119, 119)
@@ -124,7 +88,7 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
                 .addComponent(edPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btPesquisa)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,37 +99,19 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(edPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        int indice1 = tabela.getSelectedRow();
-        f.setCod_for(Integer.parseInt(tabela.getValueAt(indice1, 0).toString()));
-        f.setNomeFanta_for(tabela.getValueAt(indice1, 1).toString());
-        f.setCnpj_for(tabela.getValueAt(indice1, 2).toString());
-
-        this.dispose();
-    }//GEN-LAST:event_tabelaMouseClicked
-
-    private void tabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyPressed
-
-    }//GEN-LAST:event_tabelaKeyPressed
-
     private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
-        preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_edPesquisarActionPerformed
 
     private void edPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarKeyPressed
-        preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_edPesquisarKeyPressed
 
     private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-        preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_btPesquisaActionPerformed
      public void preencherTabela(){
         FornecedorDao fdao = new FornecedorDao();
@@ -176,15 +122,7 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
             modelo.addRow(new Object[]{f.getCod_for(),f.getNomeFanta_for(),f.getCnpj_for()});
         }
 }
-             public void preencherTabela2(String nome){
-        FornecedorDao fdao = new FornecedorDao();
-        List<Fornecedor> lista = fdao.BuscarNome(nome);
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        modelo.setRowCount(0);
-        for (Fornecedor f : lista) {
-            modelo.addRow(new Object[]{f.getCod_for(),f.getNomeFanta_for(),f.getCnpj_for()});
-        }
-}
+            
     /**
      * @param args the command line arguments
      */
@@ -226,7 +164,5 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
     private javax.swing.JTextField edPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }

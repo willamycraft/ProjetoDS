@@ -109,6 +109,7 @@ public class FormProduto extends javax.swing.JDialog {
             }
         });
 
+        edRazãoSocial.setEditable(false);
         edRazãoSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edRazãoSocialActionPerformed(evt);
@@ -117,6 +118,7 @@ public class FormProduto extends javax.swing.JDialog {
 
         jLabel9.setText("CNPJ:");
 
+        edCnpj.setEditable(false);
         try {
             edCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####.##")));
         } catch (java.text.ParseException ex) {
