@@ -15,7 +15,7 @@ import mapeamento.Fornecedor;
  * @author JONATAS
  */
 public class pesquisaFornecedor extends javax.swing.JDialog {
-        Fornecedor f = new Fornecedor();
+    Fornecedor f = new Fornecedor();
 
     public Fornecedor getF() {
         return f;
@@ -31,6 +31,7 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
      */
     public pesquisaFornecedor() {
         initComponents();
+        preencherTabela();
     }
 
     /**
@@ -192,7 +193,7 @@ public class pesquisaFornecedor extends javax.swing.JDialog {
             modelo.addRow(new Object[]{f.getCod_for(),f.getNomeFanta_for(),f.getCnpj_for()});
         }
 }
-             public void preencherTabela2(String nome){
+      public void preencherTabela2(String nome){
         FornecedorDao fdao = new FornecedorDao();
         List<Fornecedor> lista = fdao.BuscarNome(nome);
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();

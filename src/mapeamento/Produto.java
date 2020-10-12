@@ -5,7 +5,7 @@ package mapeamento;
 public class Produto {
     private String nome_prod;
     private float valor_prod;
-    private int quant_prod,cod_prod,cod_for_fk;
+    private int cod_prod,cod_for_fk;
 
     public String getNome_prod() {
         return nome_prod;
@@ -23,13 +23,6 @@ public class Produto {
         this.valor_prod = valor_prod;
     }
 
-    public int getQuant_prod() {
-        return quant_prod;
-    }
-
-    public void setQuant_prod(int quant_prod) {
-        this.quant_prod = quant_prod;
-    }
 
     public int getCod_prod() {
         return cod_prod;

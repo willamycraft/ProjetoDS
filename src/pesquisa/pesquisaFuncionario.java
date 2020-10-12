@@ -180,8 +180,6 @@ public class pesquisaFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_edPesquisarKeyPressed
 
     private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-
-
         preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_btPesquisaActionPerformed
 

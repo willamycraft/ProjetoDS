@@ -417,7 +417,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btRealizarVendaActionPerformed
 
     private void btCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarProdActionPerformed
-        FormProduto frame= new FormProduto(this, rootPaneCheckingEnabled);
+        FormProduto frame= new FormProduto();
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
 
@@ -469,7 +469,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mDespActionPerformed
 
     private void mProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mProdActionPerformed
-        FormProduto frame= new FormProduto(this, rootPaneCheckingEnabled);
+        FormProduto frame= new FormProduto();
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
     }//GEN-LAST:event_mProdActionPerformed
