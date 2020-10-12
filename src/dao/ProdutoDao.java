@@ -14,7 +14,7 @@ public class ProdutoDao {
     
     public void salvar(Produto p) {
     Connection con = Conectar.getconectar();
-    String sql = "INSERT into Produto (nome_prod ,valor_prod, cod_for_fk) values (?,?,?) ";
+    String sql = "INSERT into Produto (nome_prod ,valor_prod, cod_for_fk) values (?,?,?)";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setString(1, p.getNome_prod());
          stm.setFloat(2, p.getValor_prod());
@@ -66,14 +66,17 @@ public class ProdutoDao {
    Connection con = Conectar.getconectar();
    List <Produto> listaProduto  = new ArrayList<>();
    String sql = "Select * from Produto";
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   String sql2 = "select nomefant_for from produto,fornecedor where cod_for = cod_for_fk";
+   try(PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)){
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
+       ResultSet resultado2 = stm2.executeQuery();
+       while (resultado.next() & resultado2.next()) {
            Produto p = new Produto();
            p.setCod_prod(resultado.getInt("cod_prod"));
            p.setNome_prod(resultado.getString("nome_prod"));
            p.setValor_prod(resultado.getFloat("valor_prod"));
            p.setCod_for_fk(resultado.getInt("cod_for_fk"));
+           p.setNome_for(resultado2.getString("nomefant_for"));
            listaProduto.add(p);
        }
           stm.close();

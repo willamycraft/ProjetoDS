@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mapeamento.Fornecedor;
 import mapeamento.Produto;
-import pesquisa.pesquisaFornecedor;
+import pesquisa.pesquisaFornece;
 
 /**
  *
@@ -50,12 +50,12 @@ public class FormProduto extends javax.swing.JFrame {
         edId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btFornecedor = new javax.swing.JButton();
-        edNomeFantasia = new javax.swing.JTextField();
+        edFornecedor = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        edCnpj = new javax.swing.JFormattedTextField();
+        edCNPJ = new javax.swing.JFormattedTextField();
         btCancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        EdIdFornecedor = new javax.swing.JTextField();
+        edIdFornecedor = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -108,24 +108,24 @@ public class FormProduto extends javax.swing.JFrame {
             }
         });
 
-        edNomeFantasia.setEditable(false);
-        edNomeFantasia.addActionListener(new java.awt.event.ActionListener() {
+        edFornecedor.setEditable(false);
+        edFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edNomeFantasiaActionPerformed(evt);
+                edFornecedorActionPerformed(evt);
             }
         });
 
         jLabel9.setText("CNPJ:");
 
-        edCnpj.setEditable(false);
+        edCNPJ.setEditable(false);
         try {
-            edCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####.##")));
+            edCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        edCnpj.addActionListener(new java.awt.event.ActionListener() {
+        edCNPJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edCnpjActionPerformed(evt);
+                edCNPJActionPerformed(evt);
             }
         });
 
@@ -138,7 +138,7 @@ public class FormProduto extends javax.swing.JFrame {
 
         jLabel3.setText("ID:");
 
-        EdIdFornecedor.setEditable(false);
+        edIdFornecedor.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,7 +146,7 @@ public class FormProduto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -166,29 +166,29 @@ public class FormProduto extends javax.swing.JFrame {
                                 .addComponent(jLabel9))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(edCnpj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(edNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(edCNPJ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(EdIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(edIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(edId, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))))
+                        .addGap(41, 41, 41)
+                        .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,15 +205,15 @@ public class FormProduto extends javax.swing.JFrame {
                     .addComponent(edValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(83, 83, 83)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(btFornecedor)
                         .addComponent(jLabel3)
-                        .addComponent(EdIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -358,6 +358,8 @@ public class FormProduto extends javax.swing.JFrame {
         Produto p = new Produto();
         p.setNome_prod(edProduto.getText());
         p.setValor_prod(Float.parseFloat(edValor.getText()));
+        p.setCod_for_fk(Integer.parseInt(edIdFornecedor.getText()));
+        
         ProdutoDao pdao = new ProdutoDao();
         pdao.salvar(p);
         preencherTabela();
@@ -386,24 +388,25 @@ public class FormProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairActionPerformed
 
     private void btFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedorActionPerformed
-        pesquisaFornecedor form = new pesquisaFornecedor();
+        pesquisaFornece form = new pesquisaFornece(this, rootPaneCheckingEnabled);
         form.setLocationRelativeTo(form);
         form.setVisible(rootPaneCheckingEnabled);
-
+        
         Fornecedor f = form.getF();
-        EdIdFornecedor.setText(""+f.getCod_for());
-        edNomeFantasia.setText(""+f.getNomeFanta_for());
-        edCnpj.setText(""+f.getCnpj_for());
+        edFornecedor.setText(""+f.getNomeFanta_for());
+        edIdFornecedor.setText(""+f.getCod_for());
+        edCNPJ.setText(""+f.getCnpj_for());
+        
 
     }//GEN-LAST:event_btFornecedorActionPerformed
 
-    private void edNomeFantasiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edNomeFantasiaActionPerformed
+    private void edFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edFornecedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edNomeFantasiaActionPerformed
+    }//GEN-LAST:event_edFornecedorActionPerformed
 
-    private void edCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edCnpjActionPerformed
+    private void edCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edCNPJActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edCnpjActionPerformed
+    }//GEN-LAST:event_edCNPJActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
@@ -453,7 +456,7 @@ public class FormProduto extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setRowCount(0);
         for (Produto p : lista) {
-            modelo.addRow(new Object[]{p.getCod_prod(),String.valueOf(p.getNome_prod()),String.valueOf(p.getValor_prod()),p.getCod_for_fk()});
+            modelo.addRow(new Object[]{p.getCod_prod(), p.getNome_prod(),p.getValor_prod(), p.getNome_for()});
         }
 }
     /**
@@ -493,7 +496,6 @@ public class FormProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField EdIdFornecedor;
     private javax.swing.JButton btApagar;
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
@@ -504,9 +506,10 @@ public class FormProduto extends javax.swing.JFrame {
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSair2;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JFormattedTextField edCnpj;
+    private javax.swing.JFormattedTextField edCNPJ;
+    private javax.swing.JTextField edFornecedor;
     private javax.swing.JTextField edId;
-    private javax.swing.JTextField edNomeFantasia;
+    private javax.swing.JTextField edIdFornecedor;
     private javax.swing.JTextField edPesquisa;
     private javax.swing.JTextField edProduto;
     private javax.swing.JTextField edValor;

@@ -3,12 +3,20 @@ package mapeamento;
 
 
 public class Produto {
-    private String nome_prod;
+    private String nome_prod, nome_for;
     private float valor_prod;
-    private int cod_prod,cod_for_fk;
+    private int cod_prod, cod_for_fk;
 
     public String getNome_prod() {
         return nome_prod;
+    }
+
+    public String getNome_for() {
+        return nome_for;
+    }
+
+    public void setNome_for(String nome_for) {
+        this.nome_for = nome_for;
     }
 
     public void setNome_prod(String nome_prod) {
