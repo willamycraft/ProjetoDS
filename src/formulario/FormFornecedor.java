@@ -412,6 +412,17 @@ public class FormFornecedor extends javax.swing.JDialog {
         btAtualizar.setVisible(false);
         btSalvar.setVisible(true);
         preencherTabela();
+
+        edNome.setText("");
+        edRazao.setText("");
+        edCnpj.setText("");
+        edCep.setText("");
+        edEndereco.setText("");
+        edTelefone.setText("");
+        edEmail.setText("");
+        edResponsavel.setText("");
+        edCidade.setText("");
+        edId.setText("");
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed

@@ -62,11 +62,11 @@ public class FormProduto extends javax.swing.JFrame {
         btApagar = new javax.swing.JButton();
         btNovo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabela2 = new javax.swing.JTable();
-        btEditar2 = new javax.swing.JButton();
-        btSair4 = new javax.swing.JButton();
-        edPesquisa2 = new javax.swing.JTextField();
-        btPesquisa2 = new javax.swing.JButton();
+        tabela = new javax.swing.JTable();
+        btEditar = new javax.swing.JButton();
+        btSair2 = new javax.swing.JButton();
+        edPesquisa = new javax.swing.JTextField();
+        btPesquisa = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -303,7 +303,7 @@ public class FormProduto extends javax.swing.JFrame {
             }
         });
 
-        tabela2.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -311,18 +311,43 @@ public class FormProduto extends javax.swing.JFrame {
                 "CODIGO", "PRODUTO", "VALOR", "FORNECEDOR"
             }
         ));
-        jScrollPane3.setViewportView(tabela2);
+        jScrollPane3.setViewportView(tabela);
 
-        btEditar2.setBackground(new java.awt.Color(255, 255, 0));
-        btEditar2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btEditar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/353430-checkbox-edit-pen-pencil_107516.png"))); // NOI18N
-        btEditar2.setText("Editar");
+        btEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/353430-checkbox-edit-pen-pencil_107516.png"))); // NOI18N
+        btEditar.setText("Editar");
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
 
-        btSair4.setBackground(new java.awt.Color(255, 0, 0));
-        btSair4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btSair4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
+        btSair2.setBackground(new java.awt.Color(255, 0, 0));
+        btSair2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btSair2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
+        btSair2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSair2ActionPerformed(evt);
+            }
+        });
 
-        btPesquisa2.setText("...");
+        edPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edPesquisaActionPerformed(evt);
+            }
+        });
+        edPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                edPesquisaKeyPressed(evt);
+            }
+        });
+
+        btPesquisa.setText("...");
+        btPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisaActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setText("PESQUISAR:");
@@ -364,18 +389,18 @@ public class FormProduto extends javax.swing.JFrame {
                                 .addGap(154, 154, 154)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edPesquisa2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btPesquisa2))
+                                .addComponent(btPesquisa))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
                                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addComponent(btEditar2)
+                                .addComponent(btEditar)
                                 .addGap(28, 28, 28)
                                 .addComponent(btApagar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                        .addComponent(btSair4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btSair2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -385,18 +410,18 @@ public class FormProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(edPesquisa2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10))
-                    .addComponent(btPesquisa2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btPesquisa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btSair4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btSair2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -473,7 +498,7 @@ public class FormProduto extends javax.swing.JFrame {
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
-    }
+
     private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
         int opcao = tabela.getSelectedRow();
         if (opcao >= 0) {
@@ -499,10 +524,52 @@ public class FormProduto extends javax.swing.JFrame {
     private void edIdFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edIdFornecedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edIdFornecedorActionPerformed
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        int opcao = tabela.getSelectedRow();
+        if(opcao >= 0){
+            
+            edId.setText(tabela.getValueAt(opcao, 0).toString());
+            edProduto.setText(tabela.getValueAt(opcao, 1).toString());
+            edValor.setText(tabela.getValueAt(opcao, 2).toString());
+            edFornecedor.setText(tabela.getValueAt(opcao, 3).toString());          
+            jTabbedPane1.setSelectedIndex(0);
+            btAtualizar.setVisible(true);
+            btSalvar.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+        }    
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btSair2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSair2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btSair2ActionPerformed
+
+    private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
+        preencherTabela2(edPesquisa.getText());
+    }//GEN-LAST:event_btPesquisaActionPerformed
+
+    private void edPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisaKeyPressed
+        preencherTabela2(edPesquisa.getText());
+    }//GEN-LAST:event_edPesquisaKeyPressed
+
+    private void edPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisaActionPerformed
+        preencherTabela2(edPesquisa.getText());
+    }//GEN-LAST:event_edPesquisaActionPerformed
     
     public void preencherTabela(){
         ProdutoDao pdao = new ProdutoDao();
         List<Produto> lista = pdao.listarTodos("");
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        modelo.setRowCount(0);
+        for (Produto p : lista) {
+            modelo.addRow(new Object[]{p.getCod_prod(), p.getNome_prod(),p.getValor_prod(), p.getNome_for()});
+        }
+}
+    
+           public void preencherTabela2(String nome){
+        ProdutoDao pdao = new ProdutoDao();
+        List<Produto> lista = pdao.BuscarNome(nome);
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setRowCount(0);
         for (Produto p : lista) {
@@ -549,18 +616,18 @@ public class FormProduto extends javax.swing.JFrame {
     private javax.swing.JButton btApagar;
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btEditar2;
+    private javax.swing.JButton btEditar;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisa2;
+    private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btSair;
-    private javax.swing.JButton btSair4;
+    private javax.swing.JButton btSair2;
     private javax.swing.JButton btSalvar;
     private javax.swing.JFormattedTextField edCNPJ;
     private javax.swing.JTextField edFornecedor;
     private javax.swing.JTextField edId;
     private javax.swing.JTextField edIdFornecedor;
-    private javax.swing.JTextField edPesquisa2;
+    private javax.swing.JTextField edPesquisa;
     private javax.swing.JTextField edProduto;
     private javax.swing.JTextField edValor;
     private javax.swing.JLabel jLabel10;
@@ -578,6 +645,6 @@ public class FormProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable tabela2;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }
