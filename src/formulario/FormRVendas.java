@@ -231,7 +231,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Produto", "Quantidade", "Valor", "Valor Total"
+                "ID", "Produto", "Quantidade", "Valor Unit", "Valor Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -648,19 +648,27 @@ public class FormRVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
+ RealizarVendasDao rdao = new RealizarVendasDao();
+      
+        DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
         RealizarVendas r = new RealizarVendas();
-        Funcionario f = new Funcionario();
-        r.setValor_ven(Float.parseFloat(edValorUn.getText()));
-        r.setHora_ven(edHora.getText());
-        r.setData_ven(edData.getText());
-        r.setCod_cli(Integer.parseInt(edIDCli.getText()));
-        r.setCod_fun(Integer.parseInt(edTotal.getText()));
-        r.setCod_prod(Integer.parseInt(edIDProd.getText()));
-
-        RealizarVendasDao rdao = new RealizarVendasDao();
-        rdao.salvar(r);
+    
+        int valormaximo = modelo.getRowCount();
+        for  (int opçao = 0;opçao <= valormaximo;){ 
+         
+            r.setCod_cli(Integer.parseInt(edIDCli.getText()));
+            r.setCod_fun(1);
+            r.setData_ven(edData.getText());
+            r.setHora_ven(edHora.getText());
+            r.setCod_prod(Integer.parseInt(tabela1.getValueAt(opçao,0 ).toString()));
+            r.setQuant_ven(Integer.parseInt(tabela1.getValueAt(opçao, 2).toString()));
+            r.setValor_ven(Float.parseFloat(tabela1.getValueAt(opçao, 4).toString()));
+            opçao++;
+            
+           
+            rdao.salvar(r);
+        }   
         preencherTabela();
-        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btFinalizarActionPerformed
 
     private void edIDCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edIDCliActionPerformed
@@ -674,8 +682,10 @@ public class FormRVendas extends javax.swing.JFrame {
         for (RealizarVendas r : lista) {
             modelo.addRow(new Object[]{r.getCod_ven(), r.getValor_ven(),r.getHora_ven() ,r.getData_ven(), r.getCod_cli(), r.getCod_fun()});
         }
-         
+        
+        
 }
+  
      
       
 

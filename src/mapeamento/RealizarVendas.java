@@ -3,10 +3,19 @@ package mapeamento;
 
 
 public class RealizarVendas {
-    private int cod_ven, cod_cli, cod_fun,cod_prod;
+    private int cod_ven, cod_cli, cod_fun,cod_prod,quant_ven;
     private String hora_ven, data_ven;
     private float valor_ven;
 
+    public int getQuant_ven() {
+        return quant_ven;
+    }
+
+    public void setQuant_ven(int quant_ven) {
+        this.quant_ven = quant_ven;
+    }
+
+    
     public int getCod_ven() {
         return cod_ven;
     }
