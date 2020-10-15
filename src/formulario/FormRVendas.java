@@ -30,7 +30,6 @@ public class FormRVendas extends javax.swing.JFrame {
     public FormRVendas(Funcionario f) {
         initComponents();
        preencherTabela();
-       preencherOutraTabela();
        btAtualizar.setVisible(false);
        lbFunc.setText(f.getNome_fun());
     }
@@ -94,8 +93,6 @@ public class FormRVendas extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -459,11 +456,11 @@ public class FormRVendas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cod_Ven", "Valor", "Hora", "Data", "Cod_Cli", "Cod_Fun"
+                "Cod_Ven", "Produto", "Valor", "Hora", "Data", "Cliente", "Funcionario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, true, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -471,6 +468,10 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tabela);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setResizable(false);
+            tabela.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         btNovo.setText("Novo");
 
@@ -482,46 +483,31 @@ public class FormRVendas extends javax.swing.JFrame {
 
         jLabel9.setText("Pesquisar");
 
-        tabela2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Cod_Produto"
-            }
-        ));
-        jScrollPane1.setViewportView(tabela2);
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(btNovo)
+                .addGap(49, 49, 49)
+                .addComponent(btEditar)
+                .addGap(57, 57, 57)
+                .addComponent(btExcluir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
-                        .addGap(181, 181, 181))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(btNovo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btExcluir)
-                .addGap(164, 164, 164))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(280, Short.MAX_VALUE)
-                    .addComponent(btEditar)
-                    .addContainerGap(281, Short.MAX_VALUE)))
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,19 +518,13 @@ public class FormRVendas extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btNovo)
-                    .addComponent(btExcluir))
-                .addGap(30, 30, 30))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(539, Short.MAX_VALUE)
                     .addComponent(btEditar)
-                    .addContainerGap(13, Short.MAX_VALUE)))
+                    .addComponent(btExcluir)
+                    .addComponent(btNovo))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar Vendas", jPanel4);
@@ -696,15 +676,7 @@ public class FormRVendas extends javax.swing.JFrame {
         }
          
 }
-      public void preencherOutraTabela(){
-         RealizarVendasDao rdao = new RealizarVendasDao();
-        List<RealizarVendas> lista = rdao.listaTodosprod("");
-        DefaultTableModel modelo = (DefaultTableModel) tabela2.getModel();
-        modelo.setRowCount(0);
-         for (RealizarVendas v  : lista) {
-             modelo.addRow(new Object[]{v.getCod_prod()});
-         }
-}
+     
       
 
                
@@ -754,7 +726,6 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
@@ -764,6 +735,5 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JSpinner spQuant;
     private javax.swing.JTable tabela;
     private javax.swing.JTable tabela1;
-    private javax.swing.JTable tabela2;
     // End of variables declaration//GEN-END:variables
 }
