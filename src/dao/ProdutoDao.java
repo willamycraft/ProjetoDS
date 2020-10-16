@@ -30,7 +30,7 @@ public class ProdutoDao {
     
      public void atualizar(Produto p){
     Connection con = Conectar.getconectar();
-    String sql = "update  Produto set nome_prod=?, valor_prod=?, cod_for_fk=? where cod_prod=?";
+    String sql = "update Produto set nome_prod=?, valor_prod=?, cod_for_fk=? where cod_prod=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
          stm.setString(1, p.getNome_prod());
          stm.setFloat(2, p.getValor_prod());

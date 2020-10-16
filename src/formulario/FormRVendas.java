@@ -97,8 +97,7 @@ public class FormRVendas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela2 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(627, 630));
 
@@ -297,6 +296,7 @@ public class FormRVendas extends javax.swing.JFrame {
         });
 
         lbFunc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbFunc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
