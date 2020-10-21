@@ -16,7 +16,7 @@ public class RealizarVendasDao {
     
     public void salvar(RealizarVendas r) {
     Connection con = Conectar.getconectar();
-    String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli, cod_fun,cod_prod,quant_ven) values (?,?,?,?,?,?,?) ";
+    String sql = "INSERT into venda (valor_ven ,hora_ven, data_ven, cod_cli_fk, cod_fun_fk,cod_prod_fk,quant_ven) values (?,?,?,?,?,?,?) ";
     
     
      try (PreparedStatement stm = con.prepareStatement(sql); ) {
@@ -42,16 +42,34 @@ public class RealizarVendasDao {
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listaVendas  = new ArrayList<>();
    String sql = "Select * from venda";
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   String sql2 = "select nome_prod from venda,produto where cod_prod_fk = cod_prod";
+   String sql3 = "select nome_fun from venda,funcionario where cod_fun_fk = cod_fun";
+   String sql4 = "select nome_cli from venda,cliente where cod_cli_fk = cod_cli";
+
+   try(PreparedStatement stm = con.prepareStatement(sql) ; PreparedStatement stm2 = con.prepareStatement(sql2);
+         PreparedStatement stm3 = con.prepareStatement(sql3) ; PreparedStatement stm4 = con.prepareStatement(sql4)  ){
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
+       ResultSet resultado2 = stm2.executeQuery();
+       ResultSet resultado3 = stm3.executeQuery();
+       ResultSet resultado4 = stm4.executeQuery();
+
+       
+       while (resultado.next() & resultado2.next()& resultado3.next()& resultado4.next()) {
            RealizarVendas r = new RealizarVendas();
            r.setCod_ven(resultado.getInt("cod_ven"));
+           r.setCod_prod(resultado.getInt("cod_prod_fk"));
            r.setValor_ven(resultado.getFloat("valor_ven"));
            r.setHora_ven(resultado.getString("hora_ven"));
            r.setData_ven(resultado.getString("data_ven"));
-           r.setCod_cli(resultado.getInt("cod_cli"));
-           r.setCod_fun(resultado.getInt("cod_fun"));
+           
+           r.setCod_cli(resultado.getInt("cod_cli_fk"));
+           r.setCod_fun(resultado.getInt("cod_fun_fk"));
+           
+           
+           
+           r.setNome_prod(resultado2.getString("nome_prod"));
+           r.setNome_cli(resultado4.getString("nome_cli"));
+           r.setNome_fun(resultado3.getString("nome_fun"));
         // r.setQuant_ven(resultado.getInt("quant_ven"));
            listaVendas.add(r);
        }

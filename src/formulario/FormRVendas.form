@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" pref="606" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" pref="627" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -132,14 +132,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="btFinalizar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                       <Component id="btCancelar" min="-2" pref="125" max="-2" attributes="0"/>
                                       <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
                                       <Component id="btAtualizar" min="-2" pref="125" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btSair" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jSeparator2" min="-2" pref="570" max="-2" attributes="0"/>
                               </Group>
@@ -183,20 +182,19 @@
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="edData" min="-2" max="-2" attributes="0"/>
-                          <Component id="edHora" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="edTotal" min="-2" max="-2" attributes="0"/>
                           <Component id="edValorDesc" min="-2" max="-2" attributes="0"/>
                           <Component id="edValorPago" min="-2" max="-2" attributes="0"/>
                           <Component id="edValorTroco" min="-2" max="-2" attributes="0"/>
+                          <Component id="edHora" pref="33" max="32767" attributes="0"/>
+                          <Component id="edData" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btFinalizar" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btCancelar" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btAtualizar" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="btSair" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -225,7 +223,7 @@
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="179" max="-2" attributes="0"/>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -327,12 +325,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel8" alignment="0" pref="620" max="32767" attributes="0"/>
+                      <Component id="jLabel8" pref="620" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btSair" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="btSair" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel8" pref="42" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -349,6 +352,22 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Vendas"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btSair">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="12" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/icons/4115235-exit-logout-sign-out_114030.png"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -590,22 +609,6 @@
                 <Property name="text" type="java.lang.String" value="Valor desconto"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btSair">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="12" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/4115235-exit-logout-sign-out_114030.png"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbFunc">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -673,7 +676,7 @@
                           <Component id="btExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btNovo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="214" max="32767" attributes="0"/>
+                      <EmptySpace pref="235" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

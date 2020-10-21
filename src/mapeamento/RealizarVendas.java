@@ -4,9 +4,33 @@ package mapeamento;
 
 public class RealizarVendas {
     private int cod_ven, cod_cli, cod_fun,cod_prod,quant_ven;
-    private String hora_ven, data_ven;
+    private String hora_ven, data_ven,nome_prod,nome_cli,nome_fun;
     private float valor_ven;
 
+    public String getNome_cli() {
+        return nome_cli;
+    }
+
+    public void setNome_cli(String nome_cli) {
+        this.nome_cli = nome_cli;
+    }
+
+    public String getNome_fun() {
+        return nome_fun;
+    }
+
+    public void setNome_fun(String nome_fun) {
+        this.nome_fun = nome_fun;
+    }
+    
+    public String getNome_prod() {
+        return nome_prod;
+    }
+
+    public void setNome_prod(String nome_prod) {
+        this.nome_prod = nome_prod;
+    }
+    
     public int getQuant_ven() {
         return quant_ven;
     }
