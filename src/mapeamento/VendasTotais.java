@@ -12,7 +12,25 @@ package mapeamento;
 public class VendasTotais {
   private  int cod_cli_fk,cod_fun_fk,cod_vendas;
   private double valortotal_vendas,valorpago_vendas,valortroco_vendas,valordesconto_vendas;
+  private String nome_fun, nome_cli;
 
+    public String getNome_fun() {
+        return nome_fun;
+    }
+
+    public void setNome_fun(String nome_fun) {
+        this.nome_fun = nome_fun;
+    }
+
+    public String getNome_cli() {
+        return nome_cli;
+    }
+
+    public void setNome_cli(String nome_cli) {
+        this.nome_cli = nome_cli;
+    }
+  
+    
     public int getCod_cli_fk() {
         return cod_cli_fk;
     }

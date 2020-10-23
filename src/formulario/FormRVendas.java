@@ -8,6 +8,7 @@ package formulario;
 import dao.FuncionarioDao;
 import dao.ProdutoDao;
 import dao.RealizarVendasDao;
+import dao.VendasDao;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +16,7 @@ import mapeamento.Cliente;
 import mapeamento.Funcionario;
 import mapeamento.Produto;
 import mapeamento.RealizarVendas;
+import mapeamento.VendasTotais;
 
 import pesquisa.pesquisaCliente;
 import pesquisa.pesquisaProduto;
@@ -30,6 +32,7 @@ public class FormRVendas extends javax.swing.JFrame {
     public FormRVendas(Funcionario f) {
         initComponents();
        preencherTabela();
+       preencherTabela2();
        btAtualizar.setVisible(false);
        lbFunc.setText(f.getNome_fun());
     }
@@ -59,11 +62,11 @@ public class FormRVendas extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        edValorDesc = new javax.swing.JTextField();
+        edDesc = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        edValorPago = new javax.swing.JTextField();
+        edPago = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        edValorTroco = new javax.swing.JTextField();
+        edTroco = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         edIDProd = new javax.swing.JTextField();
@@ -84,9 +87,18 @@ public class FormRVendas extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         lbFunc = new javax.swing.JLabel();
         btSair = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabela2 = new javax.swing.JTable();
+        btNovo1 = new javax.swing.JButton();
+        btEditar1 = new javax.swing.JButton();
+        btExcluir1 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabela3 = new javax.swing.JTable();
         btNovo = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
@@ -181,17 +193,30 @@ public class FormRVendas extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Valor Total");
 
-        edValorDesc.addActionListener(new java.awt.event.ActionListener() {
+        edDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edValorDescActionPerformed(evt);
+                edDescActionPerformed(evt);
+            }
+        });
+        edDesc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edDescKeyReleased(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel13.setText("Valor Pago");
 
+        edPago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edPagoKeyReleased(evt);
+            }
+        });
+
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Valor troco");
+
+        edTroco.setEditable(false);
 
         jSeparator2.setForeground(new java.awt.Color(0, 153, 51));
 
@@ -280,6 +305,8 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         });
 
+        edTotal.setEditable(false);
+
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Valor desconto");
 
@@ -316,32 +343,6 @@ public class FormRVendas extends javax.swing.JFrame {
                         .addComponent(btPCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel5)
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel13)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel14))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(edData, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(edHora, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(edTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(edValorDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(edValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(edValorTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1)
@@ -381,7 +382,36 @@ public class FormRVendas extends javax.swing.JFrame {
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(edData, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(edHora, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(edTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel5)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel14))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(edPago, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(edTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(2, 2, 2))
         );
         jPanel1Layout.setVerticalGroup(
@@ -411,10 +441,11 @@ public class FormRVendas extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(edTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edValorDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edValorTroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(edTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(edPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edTroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edHora, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(edData))
                 .addGap(18, 18, 18)
@@ -454,7 +485,90 @@ public class FormRVendas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Realizar Vendas", jPanel1);
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        jButton5.setText("...");
+
+        jLabel16.setText("Pesquisar");
+
+        tabela2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cod_Vendas", "Cliente", "ValorTotal", "ValorPago", "ValorTroco", "ValorDesconto", "Funcionario"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tabela2);
+        if (tabela2.getColumnModel().getColumnCount() > 0) {
+            tabela2.getColumnModel().getColumn(0).setResizable(false);
+            tabela2.getColumnModel().getColumn(1).setResizable(false);
+            tabela2.getColumnModel().getColumn(2).setResizable(false);
+            tabela2.getColumnModel().getColumn(3).setResizable(false);
+            tabela2.getColumnModel().getColumn(4).setResizable(false);
+            tabela2.getColumnModel().getColumn(5).setResizable(false);
+            tabela2.getColumnModel().getColumn(6).setResizable(false);
+        }
+
+        btNovo1.setText("Novo");
+
+        btEditar1.setText("Editar");
+
+        btExcluir1.setText("Excluir");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(btNovo1)
+                .addGap(49, 49, 49)
+                .addComponent(btEditar1)
+                .addGap(57, 57, 57)
+                .addComponent(btExcluir1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5)
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btEditar1)
+                    .addComponent(btExcluir1)
+                    .addComponent(btNovo1))
+                .addContainerGap(235, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Listar VendasTotais", jPanel2);
+
+        tabela3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -463,17 +577,22 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tabela);
-        if (tabela.getColumnModel().getColumnCount() > 0) {
-            tabela.getColumnModel().getColumn(0).setResizable(false);
-            tabela.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane2.setViewportView(tabela3);
+        if (tabela3.getColumnModel().getColumnCount() > 0) {
+            tabela3.getColumnModel().getColumn(0).setResizable(false);
+            tabela3.getColumnModel().getColumn(1).setResizable(false);
+            tabela3.getColumnModel().getColumn(2).setResizable(false);
+            tabela3.getColumnModel().getColumn(3).setResizable(false);
+            tabela3.getColumnModel().getColumn(4).setResizable(false);
+            tabela3.getColumnModel().getColumn(5).setResizable(false);
+            tabela3.getColumnModel().getColumn(6).setResizable(false);
         }
 
         btNovo.setText("Novo");
@@ -527,7 +646,7 @@ public class FormRVendas extends javax.swing.JFrame {
                     .addComponent(btEditar)
                     .addComponent(btExcluir)
                     .addComponent(btNovo))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar Vendas", jPanel4);
@@ -540,7 +659,7 @@ public class FormRVendas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
 
         pack();
@@ -607,7 +726,7 @@ public class FormRVendas extends javax.swing.JFrame {
             b=(a+nm);
             edTotal.setText(String.valueOf(b));
         }
-
+        
     }//GEN-LAST:event_btAddActionPerformed
 
     private void edValorUnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edValorUnActionPerformed
@@ -618,40 +737,67 @@ public class FormRVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edIDProdActionPerformed
 
-    private void edValorDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edValorDescActionPerformed
+    private void edDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edDescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edValorDescActionPerformed
+    }//GEN-LAST:event_edDescActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        /* btFinalizar.setVisible(true);
-        btAtualizar.setVisible(false);
-        edData.setText("");
-        edHora.setText("");
-        edIdCliente.setText("");
-        edValor.setText("");
-        edIdFuncionario.setText("");*/
+
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-        /*   RealizarVendas r = new RealizarVendas();
-        VendaProduto p = new VendaProduto();
-        r.setCod_ven(Integer.parseInt(edIDCli.getText()));
-        r.setValor_ven(Float.parseFloat(edValor.getText()));
-        r.setHora_ven(edHora.getText());
-        r.setData_ven(edData.getText());
-        r.setCod_cli(Integer.parseInt(edIdCliente.getText()));
-        r.setCod_fun(Integer.parseInt(edIdFuncionario.getText()));
-        p.setCod_prod(Integer.parseInt(edProduto.getText()));
-        RealizarVendasDao rdao = new RealizarVendasDao();
-        rdao.atualizar(r,p);
-        jTabbedPane1.setSelectedIndex(1);
-        btAtualizar.setVisible(false);
-        btFinalizar.setVisible(true);
-        preencherTabela();*/
+    
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
-        RealizarVendasDao rdao = new RealizarVendasDao();
+//
+        salvarVendas();
+        salvarVenda();
+        preencherTabela();
+        preencherTabela2();
+        
+        
+ 
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btFinalizarActionPerformed
+
+    private void edIDCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edIDCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edIDCliActionPerformed
+
+    private void edPagoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPagoKeyReleased
+double a,b;
+        a=Double.parseDouble(edPago.getText());
+        b=Double.parseDouble(edTotal.getText());
+        double c;
+if(a>b){
+    
+    c=a-b;
+edTroco.setText(String.valueOf(c));
+}
+else{
+edTroco.setText("0");
+}     
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edPagoKeyReleased
+
+    private void edDescKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edDescKeyReleased
+double a,b,c;
+        a=Double.parseDouble(edDesc.getText());     
+        b=Double.parseDouble(edTotal.getText());
+        c= b-a;
+        edTotal.setText(String.valueOf(c));
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edDescKeyReleased
+     public void salvarVenda(){
+      RealizarVendasDao rdao = new RealizarVendasDao();
         Funcionario f = new Funcionario();
         DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
         RealizarVendas r = new RealizarVendas();
@@ -660,7 +806,7 @@ public class FormRVendas extends javax.swing.JFrame {
         for  (int opçao = 0;opçao <= valormaximo;){ 
             
             r.setCod_cli(Integer.parseInt(edIDCli.getText()));
-            r.setCod_fun(f.getCod_fun());
+            r.setCod_fun(1);
             r.setData_ven(edData.getText());
             r.setHora_ven(edHora.getText());
             r.setCod_prod(Integer.parseInt(tabela1.getValueAt(opçao,0 ).toString()));
@@ -672,15 +818,30 @@ public class FormRVendas extends javax.swing.JFrame {
             rdao.salvar(r);
         }   
         preencherTabela();
-    }//GEN-LAST:event_btFinalizarActionPerformed
-
-    private void edIDCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edIDCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edIDCliActionPerformed
+        //
+   }
+    
+    
+     public void salvarVendas(){
+      VendasDao vdao = new VendasDao();
+        VendasTotais t = new VendasTotais();
+        
+        t.setCod_cli_fk(Integer.parseInt(edIDCli.getText()));
+        t.setCod_fun_fk(1);
+        t.setValortotal_vendas(Double.parseDouble(edTotal.getText()));
+        t.setValorpago_vendas(Double.parseDouble(edPago.getText()));
+        t.setValortroco_vendas(Double.parseDouble(edTroco.getText()));
+        t.setValordesconto_vendas(Double.parseDouble(edDesc.getText()));
+        vdao.salvar(t);
+        preencherTabela2();
+    }
+    
+    
+    
      public void preencherTabela(){
          RealizarVendasDao rdao = new RealizarVendasDao();
         List<RealizarVendas> lista = rdao.listarTodos("");
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabela3.getModel();
         modelo.setRowCount(0);
         for (RealizarVendas r : lista) {
             modelo.addRow(new Object[]{r.getCod_ven(),r.getNome_prod(), r.getValor_ven(),r.getHora_ven() ,r.getData_ven(), r.getNome_cli(), r.getNome_fun()});
@@ -688,9 +849,18 @@ public class FormRVendas extends javax.swing.JFrame {
         
         
 }
-  
+     public void preencherTabela2(){
+         VendasDao rdao = new VendasDao();
+        List<VendasTotais> lista = rdao.listarTodos("");
+        DefaultTableModel modelo = (DefaultTableModel) tabela2.getModel();
+        modelo.setRowCount(0);
+        for (VendasTotais r : lista) {
+            modelo.addRow(new Object[]{r.getCod_vendas(),r.getNome_cli(), r.getValortotal_vendas(),r.getValorpago_vendas(),r.getValortroco_vendas(), r.getValordesconto_vendas(), r.getNome_fun()});
+        }
+        
+        
+}
      
-      
 
                
     /**
@@ -704,24 +874,28 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btDel;
     private javax.swing.JButton btEditar;
+    private javax.swing.JButton btEditar1;
     private javax.swing.JButton btExcluir;
+    private javax.swing.JButton btExcluir1;
     private javax.swing.JButton btFinalizar;
     private javax.swing.JButton btNovo;
+    private javax.swing.JButton btNovo1;
     private javax.swing.JButton btPCliente;
     private javax.swing.JButton btPProd;
     private javax.swing.JButton btSair;
     private javax.swing.JFormattedTextField edData;
+    private javax.swing.JTextField edDesc;
     private javax.swing.JFormattedTextField edHora;
     private javax.swing.JTextField edIDCli;
     private javax.swing.JTextField edIDProd;
     private javax.swing.JTextField edNomeCli;
     private javax.swing.JTextField edNomeProd;
+    private javax.swing.JTextField edPago;
     private javax.swing.JTextField edTotal;
-    private javax.swing.JTextField edValorDesc;
-    private javax.swing.JTextField edValorPago;
-    private javax.swing.JTextField edValorTroco;
+    private javax.swing.JTextField edTroco;
     private javax.swing.JTextField edValorUn;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -729,6 +903,7 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -737,16 +912,20 @@ public class FormRVendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbFunc;
     private javax.swing.JSpinner spQuant;
-    private javax.swing.JTable tabela;
     private javax.swing.JTable tabela1;
+    private javax.swing.JTable tabela2;
+    private javax.swing.JTable tabela3;
     // End of variables declaration//GEN-END:variables
 }
