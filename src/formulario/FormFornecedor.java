@@ -371,7 +371,7 @@ public class FormFornecedor extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         Fornecedor f = new Fornecedor();
-        f.setCod_for(Integer.parseInt(edId.getText()));
+       // f.setCod_for(Integer.parseInt(edId.getText()));
         f.setNomeFanta_for(edNome.getText());
         f.setRazaoSocial_for(edRazao.getText());
         f.setCnpj_for(edCnpj.getText());
