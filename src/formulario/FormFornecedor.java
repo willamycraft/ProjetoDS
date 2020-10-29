@@ -70,7 +70,6 @@ public class FormFornecedor extends javax.swing.JDialog {
         btEditar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         edPesquisar = new javax.swing.JTextField();
-        btPesquisa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
@@ -254,10 +253,18 @@ public class FormFornecedor extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setText("PESQUISAR:");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 74, -1, -1));
-        jPanel2.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 67, 227, 30));
 
-        btPesquisa.setText("...");
-        jPanel2.add(btPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 67, 37, 30));
+        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edPesquisarActionPerformed(evt);
+            }
+        });
+        edPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edPesquisarKeyReleased(evt);
+            }
+        });
+        jPanel2.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 67, 280, 30));
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -439,9 +446,31 @@ public class FormFornecedor extends javax.swing.JDialog {
         edCidade.setText("");
     }//GEN-LAST:event_btCancelarActionPerformed
 
+    private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
+        preencherTabela2(edPesquisar.getText());
+    }//GEN-LAST:event_edPesquisarActionPerformed
+
+    private void edPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarKeyReleased
+       preencherTabela2(edPesquisar.getText());
+    }//GEN-LAST:event_edPesquisarKeyReleased
+    
+    private void edPesquisarKeyPressed(java.awt.event.KeyEvent evt) {                                       
+                 preencherTabela2(edPesquisar.getText());
+    }        
+    
    public void preencherTabela(){
         FornecedorDao fdao = new FornecedorDao();
         List<Fornecedor> lista = fdao.listarTodos("");
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        modelo.setRowCount(0);
+        for (Fornecedor f : lista) {
+            modelo.addRow(new Object[]{f.getCod_for(),f.getNomeFanta_for(),f.getRazaoSocial_for(), f.getCnpj_for(), f.getCep_for(),f.getEndereco_for(), f.getTelefone_for() , f.getEmail_for(), f.getResp_for(), f.getCidade_for()});
+        }
+}
+    
+   public void preencherTabela2(String nome){
+        FornecedorDao fdao = new FornecedorDao();
+        List<Fornecedor> lista = fdao.BuscarNome(nome);
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setRowCount(0);
         for (Fornecedor f : lista) {
@@ -493,7 +522,6 @@ public class FormFornecedor extends javax.swing.JDialog {
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;
     private javax.swing.JFormattedTextField edCep;

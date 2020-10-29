@@ -66,7 +66,6 @@ public class FormProduto extends javax.swing.JFrame {
         btEditar = new javax.swing.JButton();
         btSair2 = new javax.swing.JButton();
         edPesquisa = new javax.swing.JTextField();
-        btPesquisa = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -310,7 +309,15 @@ public class FormProduto extends javax.swing.JFrame {
             new String [] {
                 "CODIGO", "PRODUTO", "VALOR", "FORNECEDOR"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tabela);
 
         btEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -339,13 +346,6 @@ public class FormProduto extends javax.swing.JFrame {
         edPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 edPesquisaKeyPressed(evt);
-            }
-        });
-
-        btPesquisa.setText("...");
-        btPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisaActionPerformed(evt);
             }
         });
 
@@ -389,9 +389,7 @@ public class FormProduto extends javax.swing.JFrame {
                                 .addGap(154, 154, 154)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btPesquisa))
+                                .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
                                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,11 +406,9 @@ public class FormProduto extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10))
-                    .addComponent(btPesquisa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -545,10 +541,6 @@ public class FormProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btSair2ActionPerformed
 
-    private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-        preencherTabela2(edPesquisa.getText());
-    }//GEN-LAST:event_btPesquisaActionPerformed
-
     private void edPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisaKeyPressed
         preencherTabela2(edPesquisa.getText());
     }//GEN-LAST:event_edPesquisaKeyPressed
@@ -619,7 +611,6 @@ public class FormProduto extends javax.swing.JFrame {
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSair2;
     private javax.swing.JButton btSalvar;
