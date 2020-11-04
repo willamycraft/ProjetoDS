@@ -454,6 +454,7 @@ public class FormProduto extends javax.swing.JFrame {
         p.setCod_prod(Integer.parseInt(edId.getText()));
         p.setNome_prod(edProduto.getText());
         p.setValor_prod(Float.parseFloat(edValor.getText()));
+        p.setCod_for_fk(Integer.parseInt(edIdFornecedor.getText()));
         ProdutoDao pdao = new ProdutoDao();
         pdao.atualizar(p);
         jTabbedPane1.setSelectedIndex(1);
