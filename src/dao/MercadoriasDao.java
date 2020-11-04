@@ -41,7 +41,6 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
          stm.setInt(4, d.getCod_prod_fk());
          stm.setInt(5, d.getCod_fun_fk());
          stm.setInt(6, d.getCod_merc());
-
       
          stm.executeUpdate();
          stm.close();

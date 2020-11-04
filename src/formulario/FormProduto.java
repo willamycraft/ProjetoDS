@@ -560,7 +560,7 @@ public class FormProduto extends javax.swing.JFrame {
         }
 }
     
-           public void preencherTabela2(String nome){
+        public void preencherTabela2(String nome){
         ProdutoDao pdao = new ProdutoDao();
         List<Produto> lista = pdao.BuscarNome(nome);
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();

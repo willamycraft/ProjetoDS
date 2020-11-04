@@ -334,13 +334,6 @@ public class FormMercadorias extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tabela1);
-        if (tabela1.getColumnModel().getColumnCount() > 0) {
-            tabela1.getColumnModel().getColumn(0).setHeaderValue("CODIGO");
-            tabela1.getColumnModel().getColumn(2).setHeaderValue("DATA");
-            tabela1.getColumnModel().getColumn(3).setHeaderValue("HORA");
-            tabela1.getColumnModel().getColumn(4).setHeaderValue("FUNCIONARIO");
-            tabela1.getColumnModel().getColumn(5).setHeaderValue("PRODUTO");
-        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -465,12 +458,7 @@ public class FormMercadorias extends javax.swing.JFrame {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        btSalvar.setVisible(true);
-        btAtualizar.setVisible(false);
-        edQuant.setText("");
-        edFuncionario.setText("");
-        edHora.setText("");
-        edData.setText("");
+        
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncActionPerformed
@@ -515,24 +503,24 @@ public class FormMercadorias extends javax.swing.JFrame {
         edData.setText("");
     }//GEN-LAST:event_btNovoActionPerformed
 
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-     
-    }//GEN-LAST:event_btEditarActionPerformed
-
     private void btApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApagarActionPerformed
    
     }//GEN-LAST:event_btApagarActionPerformed
 
-     public void preencherTabela(){
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+
+    }//GEN-LAST:event_btEditarActionPerformed
+
+    public void preencherTabela(){
         MercadoriasDao pdao = new MercadoriasDao();
         List<Mercadorias> lista = pdao.listarTodos("");
-        DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) modelo.getModel();
         modelo.setRowCount(0);
         for (Mercadorias p : lista) {
-        
+
             modelo.addRow(new Object[]{p.getCod_merc(),String.valueOf(p.getQuant_merc()),String.valueOf(p.getData_merc()), String.valueOf(p.getHora_merc()), p.getNome_fun(),p.getNome_prod()});
         }
-          
+
 }
       
   /*   public void preencherTabela2(){

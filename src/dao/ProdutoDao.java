@@ -92,16 +92,19 @@ public class ProdutoDao {
    Connection con = Conectar.getconectar();
    List <Produto> listaproduto  = new ArrayList<>();
    String sql = "Select * from produto where nome_prod like'"+nome+"%'";
+   String sql2 = "select nomefant_for from produto,fornecedor where cod_for = cod_for_fk";
    
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   try(PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)){
      
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
+       ResultSet resultado2 = stm2.executeQuery();
+       while (resultado.next() & resultado2.next()) {
            Produto p = new Produto();
            p.setCod_prod(resultado.getInt("cod_prod"));
            p.setNome_prod(resultado.getString("nome_prod"));
            p.setValor_prod(resultado.getFloat("valor_prod"));
            p.setCod_for_fk(resultado.getInt("cod_for_fk"));
+           p.setNome_for(resultado2.getString("nomefant_for"));
            listaproduto.add(p);
        }
           stm.close();
