@@ -85,7 +85,7 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
            d.setCod_merc(resultado.getInt("cod_merc"));
            d.setQuant_merc(resultado.getInt("quant_merc"));
            d.setData_merc(resultado.getString("data_merc"));
-           d.setHora_merc(resultado.getString("cod_merc"));
+           d.setHora_merc(resultado.getString("hora_merc"));
            d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
            d.setCod_fun_fk(resultado.getInt("cod_fun_fk"));  
            d.setNome_prod(resultado2.getString("nome_prod"));
