@@ -412,11 +412,10 @@ public class FormMercadorias extends javax.swing.JFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         MercadoriasDao pdao = new MercadoriasDao();
         Mercadorias p = new Mercadorias();
-        Connection con = Conectar.getconectar();
-        String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
         
-        if (rootPaneCheckingEnabled) {
-              p.setQuant_merc(Integer.parseInt(edQuant.getText()));
+        
+        
+        p.setQuant_merc(Integer.parseInt(edQuant.getText()));
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
         p.setCod_prod_fk(Integer.parseInt(edIdProd.getText()));
@@ -425,20 +424,27 @@ public class FormMercadorias extends javax.swing.JFrame {
         pdao.salvar(p);
         preencherTabela();
         jTabbedPane1.setSelectedIndex(1);
-        }
+        
       
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
+        MercadoriasDao pdao = new MercadoriasDao();
         Mercadorias p = new Mercadorias();
+       
+        
+        p.setQuant_merc(Integer.parseInt(edQuant.getText()));
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
         p.setCod_fun_fk(Integer.parseInt(edFuncionario.getText()));
-        MercadoriasDao pdao = new MercadoriasDao();        pdao.atualizar(p);
+        p.setCod_prod_fk(Integer.parseInt(edIdProd.getText()));
+        
+        pdao.atualizar(p);
         jTabbedPane1.setSelectedIndex(1);
-        btAtualizar.setVisible(false);
-        btSalvar.setVisible(true);
+        btAtualizar.setVisible(true);
+        btSalvar.setVisible(false);
         preencherTabela();
+        
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
@@ -490,12 +496,17 @@ public class FormMercadorias extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
          int opcao = tabela1.getSelectedRow();
         if(opcao >= 0){
-        btSalvar.setVisible(false);
+        edQuant.setText(tabela1.getValueAt(opcao, 1).toString());
+        edFuncionario.setText(tabela1.getValueAt(opcao, 4).toString());
+        edProduto.setText(tabela1.getValueAt(opcao, 5).toString());
+        edHora.setText(tabela1.getValueAt(opcao, 3).toString());
+        edData.setText(tabela1.getValueAt(opcao, 2).toString());
+        jTabbedPane1.setSelectedIndex(0);
         btAtualizar.setVisible(true);
-        edQuant.setText(tabela1.getValueAt(opcao, 0).toString());
-        edFuncionario.setText("");
-        edHora.setText("");
-        edData.setText("");
+        btSalvar.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+          
         }
     }//GEN-LAST:event_btEditarActionPerformed
 

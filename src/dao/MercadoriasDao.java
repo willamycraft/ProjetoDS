@@ -32,7 +32,7 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
     
      public void atualizar(Mercadorias d){
     Connection con = Conectar.getconectar();
-    String sql = "update Mercadorias set quant_mec,data_merc,hora_merc, cod_prod_fk,cod_fun_fk where cod_merc=?";
+    String sql = "update Mercadorias set quant_merc=?, data_merc=?, hora_merc=?,  cod_prod_fk=?, cod_fun_fk=? where cod_merc=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
        
          stm.setInt(1, d.getQuant_merc());

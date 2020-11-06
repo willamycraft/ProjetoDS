@@ -469,6 +469,9 @@ public class FormProduto extends javax.swing.JFrame {
         btAtualizar.setVisible(false);
         edProduto.setText("");
         edValor.setText("");
+        edIdFornecedor.setText("");
+        edCNPJ.setText("");
+        edId.setText("");
     }//GEN-LAST:event_btSairActionPerformed
 
     private void btFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedorActionPerformed
@@ -515,6 +518,9 @@ public class FormProduto extends javax.swing.JFrame {
         btAtualizar.setVisible(false);
         edProduto.setText("");
         edValor.setText("");
+        edIdFornecedor.setText("");
+        edCNPJ.setText("");
+        edId.setText("");
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_btNovoActionPerformed
 
@@ -523,13 +529,14 @@ public class FormProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_edIdFornecedorActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        
         int opcao = tabela.getSelectedRow();
         if(opcao >= 0){
             
             edId.setText(tabela.getValueAt(opcao, 0).toString());
             edProduto.setText(tabela.getValueAt(opcao, 1).toString());
             edValor.setText(tabela.getValueAt(opcao, 2).toString());
-            edFornecedor.setText(tabela.getValueAt(opcao, 3).toString());          
+            edFornecedor.setText(tabela.getValueAt(opcao, 3).toString());
             jTabbedPane1.setSelectedIndex(0);
             btAtualizar.setVisible(true);
             btSalvar.setVisible(false);
