@@ -2,6 +2,7 @@
 package formulario;
 import dao.MercadoriasDao;
 import dao.RealizarVendasDao;
+import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,6 +13,7 @@ import mapeamento.Produto;
 import mapeamento.RealizarVendas;
 import pesquisa.pesquisaFuncionario;
 import pesquisa.pesquisaProduto;
+import utilitario.Conectar;
 
 /**
  *
@@ -408,16 +410,23 @@ public class FormMercadorias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        MercadoriasDao pdao = new MercadoriasDao();
         Mercadorias p = new Mercadorias();
-        p.setQuant_merc(Integer.parseInt(edQuant.getText()));
+        Connection con = Conectar.getconectar();
+        String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
+        
+        if (rootPaneCheckingEnabled) {
+              p.setQuant_merc(Integer.parseInt(edQuant.getText()));
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
         p.setCod_prod_fk(Integer.parseInt(edIdProd.getText()));
         p.setCod_fun_fk(Integer.parseInt(edIdFunc.getText()));
-        MercadoriasDao pdao = new MercadoriasDao();
+       
         pdao.salvar(p);
         preencherTabela();
         jTabbedPane1.setSelectedIndex(1);
+        }
+      
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
