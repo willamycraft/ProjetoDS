@@ -38,6 +38,9 @@ public class RealizarVendasDao {
          JOptionPane.showMessageDialog(null, "error"+ex.getMessage());
      }
 }
+    
+    
+    
     public List<RealizarVendas> listarTodos(String nome){
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listaVendas  = new ArrayList<>();
