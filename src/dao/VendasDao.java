@@ -34,6 +34,27 @@ public class VendasDao {
          JOptionPane.showMessageDialog(null, "error"+ex.getMessage());
      }
 }
+    
+    public void editar(VendasTotais v){
+    Connection con = Conectar.getconectar();
+String sql = "update  vendas set valortotal_vendas=?, valorpago_vendas=?, valortroco_vendas=?, valordesconto_vendas=? where cod_vendas=?";
+     try (PreparedStatement stm = con.prepareStatement(sql)) {
+         stm.setDouble(1, v.getValortotal_vendas());
+         stm.setDouble(2, v.getValorpago_vendas());
+         stm.setDouble(3, v.getValortroco_vendas());
+         stm.setDouble(4, v.getValordesconto_vendas());
+         stm.setInt(5, v.getCod_vendas());
+         
+         stm.executeUpdate();
+         stm.close();
+         con.close();
+         JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
+     }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, "error"+ex.getMessage());
+         System.out.println("error"+ex.getMessage());
+     }
+    
+}
     public List<VendasTotais> listarTodos(String nome){
    Connection con = Conectar.getconectar();
    List <VendasTotais> listaVendas  = new ArrayList<>();
