@@ -418,8 +418,6 @@ public class FormMercadorias extends javax.swing.JFrame {
         MercadoriasDao pdao = new MercadoriasDao();
         Mercadorias p = new Mercadorias();
         
-        
-        
         p.setQuant_merc(Integer.parseInt(edQuant.getText()));
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
@@ -434,20 +432,16 @@ public class FormMercadorias extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-        MercadoriasDao pdao = new MercadoriasDao();
         Mercadorias p = new Mercadorias();
-       
         
         p.setQuant_merc(Integer.parseInt(edQuant.getText()));
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
-        p.setCod_fun_fk(Integer.parseInt(edFuncionario.getText()));
+        p.setCod_fun_fk(Integer.parseInt(edIdFunc.getText()));
         p.setCod_prod_fk(Integer.parseInt(edIdProd.getText()));
-        
+        MercadoriasDao pdao = new MercadoriasDao();
         pdao.atualizar(p);
         jTabbedPane1.setSelectedIndex(1);
-        btAtualizar.setVisible(true);
-        btSalvar.setVisible(false);
         preencherTabela();
         
     }//GEN-LAST:event_btAtualizarActionPerformed
@@ -501,6 +495,7 @@ public class FormMercadorias extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
          int opcao = tabela1.getSelectedRow();
         if(opcao >= 0){
+        
         edQuant.setText(tabela1.getValueAt(opcao, 1).toString());
         edFuncionario.setText(tabela1.getValueAt(opcao, 4).toString());
         edProduto.setText(tabela1.getValueAt(opcao, 5).toString());
@@ -508,6 +503,8 @@ public class FormMercadorias extends javax.swing.JFrame {
         edData.setText(tabela1.getValueAt(opcao, 2).toString());
         jTabbedPane1.setSelectedIndex(0);
         btAtualizar.setVisible(true);
+        btFunc.setVisible(false);
+        btProd.setVisible(false);
         btSalvar.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Selecione uma linha!");

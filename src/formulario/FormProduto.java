@@ -63,7 +63,6 @@ public class FormProduto extends javax.swing.JFrame {
         btNovo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btEditar = new javax.swing.JButton();
         btSair2 = new javax.swing.JButton();
         edPesquisa = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -320,15 +319,6 @@ public class FormProduto extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tabela);
 
-        btEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/353430-checkbox-edit-pen-pencil_107516.png"))); // NOI18N
-        btEditar.setText("Editar");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
-            }
-        });
-
         btSair2.setBackground(new java.awt.Color(255, 0, 0));
         btSair2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btSair2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
@@ -391,13 +381,11 @@ public class FormProduto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(edPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(150, 150, 150)
+                                .addGap(219, 219, 219)
                                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(btEditar)
-                                .addGap(28, 28, 28)
+                                .addGap(18, 18, 18)
                                 .addComponent(btApagar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addComponent(btSair2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -414,7 +402,6 @@ public class FormProduto extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btSair2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -528,23 +515,6 @@ public class FormProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edIdFornecedorActionPerformed
 
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        
-        int opcao = tabela.getSelectedRow();
-        if(opcao >= 0){
-            
-            edId.setText(tabela.getValueAt(opcao, 0).toString());
-            edProduto.setText(tabela.getValueAt(opcao, 1).toString());
-            edValor.setText(tabela.getValueAt(opcao, 2).toString());
-            edFornecedor.setText(tabela.getValueAt(opcao, 3).toString());
-            jTabbedPane1.setSelectedIndex(0);
-            btAtualizar.setVisible(true);
-            btSalvar.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "Selecione uma linha!");
-        }    
-    }//GEN-LAST:event_btEditarActionPerformed
-
     private void btSair2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSair2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_btSair2ActionPerformed
@@ -616,7 +586,6 @@ public class FormProduto extends javax.swing.JFrame {
     private javax.swing.JButton btApagar;
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btEditar;
     private javax.swing.JButton btFornecedor;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
