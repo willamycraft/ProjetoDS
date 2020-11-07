@@ -538,18 +538,7 @@ public class FormMercadorias extends javax.swing.JFrame {
 
 }
       
-  /*   public void preencherTabela2(){
-        MercadoriasDao pdao = new MercadoriasDao();
-        List<Mercadorias> lista = pdao.ListarNomeProduto("");
-        DefaultTableModel modelo = (DefaultTableModel) tabela2.getModel();
-        modelo.setRowCount(0);
-        for (Mercadorias p : lista) {
-        
-            modelo.addRow(new Object[]{p.getNome_prod()});
-        }
-          
-}
-     */
+  
      
     /**
      * @param args the command line arguments
