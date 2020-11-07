@@ -13,6 +13,29 @@ import utilitario.Conectar;
 
 
 public class RealizarVendasDao {
+
+public void deletar(RealizarVendas p){
+    Connection con = Conectar.getconectar();
+    String sql = "delete from venda where cod_ven=?";
+        int op = JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR "+ p.getCod_ven()+ " ?", "EXCLUSÃO", JOptionPane.YES_NO_OPTION);
+        if (op == JOptionPane.YES_OPTION) {
+            try (PreparedStatement stm = con.prepareStatement(sql)) {
+                stm.setInt(1, p.getCod_ven()); 
+                stm.executeLargeUpdate();
+                JOptionPane.showMessageDialog(null, "Deletado com sucesso");
+                stm.close();
+                con.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "error" + ex.getMessage());
+            }
+        }
+            
+}
+    
+    
+    
+
+
     
     public void salvar(RealizarVendas r) {
     Connection con = Conectar.getconectar();
@@ -28,6 +51,27 @@ public class RealizarVendasDao {
          stm.setInt(6, r.getCod_prod());
          stm.setInt(7, r.getQuant_ven());
           
+         stm.execute();
+      
+         stm.close();
+       
+         con.close();
+         JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
+     }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, "error"+ex.getMessage());
+     }
+}
+       public void editar(RealizarVendas r) {
+    Connection con = Conectar.getconectar();
+    String sql = "update  venda set valor_ven=?, hora_ven=?, data_ven=?, quant_ven=?  where cod_ven=? ";
+    
+    
+     try (PreparedStatement stm = con.prepareStatement(sql); ) {
+         stm.setFloat(1, r.getValor_ven());
+         stm.setString(2, r.getHora_ven());
+         stm.setString(3, r.getData_ven());
+         stm.setInt(4, r.getQuant_ven());
+         stm.setInt(5, r.getCod_ven());
          stm.execute();
       
          stm.close();

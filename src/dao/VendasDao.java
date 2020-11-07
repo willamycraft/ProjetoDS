@@ -35,6 +35,25 @@ public class VendasDao {
      }
 }
     
+    public void deletar(VendasTotais p){
+    Connection con = Conectar.getconectar();
+    String sql = "delete from vendas where cod_vendas=?";
+        int op = JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR "+ p.getCod_vendas()+ " ?", "EXCLUSÃO", JOptionPane.YES_NO_OPTION);
+        if (op == JOptionPane.YES_OPTION) {
+            try (PreparedStatement stm = con.prepareStatement(sql)) {
+                stm.setInt(1, p.getCod_vendas()); 
+                stm.executeLargeUpdate();
+                JOptionPane.showMessageDialog(null, "Deletado com sucesso");
+                stm.close();
+                con.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "error" + ex.getMessage());
+            }
+        }
+            
+}
+    
+    
     public void editar(VendasTotais v){
     Connection con = Conectar.getconectar();
 String sql = "update  vendas set valortotal_vendas=?, valorpago_vendas=?, valortroco_vendas=?, valordesconto_vendas=? where cod_vendas=?";
