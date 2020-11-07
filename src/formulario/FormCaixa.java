@@ -20,14 +20,13 @@ public class FormCaixa extends javax.swing.JDialog {
         initComponents();
          RealizarVendasDao rdao = new RealizarVendasDao();
          DespesasDao pdao = new DespesasDao();
-        float valorTotalDesp;
        
-        edDespesas.setText("0,00");
-        edLucro.setText("0,00");
-        edLucroPrej.setText("0,00");
+        edDespesas.setText("50,00");
+        edLucro.setText("100,00");
         edReceitas.setText("0,00");
-        edSaldoF.setText("0,00");
-        edSaldoIn.setText("0,00");
+        edSaldoIn.setText("50,00");
+        edSaldoF.setText("");
+        
         
         
     }
@@ -229,7 +228,12 @@ public class FormCaixa extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int valorTotalDesp, valor1, valor2, valor3;
+        valor1 = 50;
+        valor2 = 100;
+        valor3 = 50;
+        valorTotalDesp = valor1 + valor2 - valor3;
+        edSaldoF.setText(String.valueOf(valorTotalDesp));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

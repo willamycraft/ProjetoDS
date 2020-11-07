@@ -35,6 +35,7 @@ public class FormRVendas extends javax.swing.JFrame {
        preencherTabela2();
        btAtualizar.setVisible(false);
        lbFunc.setText(f.getNome_fun());
+       
     }
 
 
