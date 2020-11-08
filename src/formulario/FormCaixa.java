@@ -22,6 +22,7 @@ public class FormCaixa extends javax.swing.JDialog {
         initComponents();
          RealizarVendasDao rdao = new RealizarVendasDao();
          DespesasDao pdao = new DespesasDao();
+
         float valorTotalDesp;
        Caixa c = new Caixa();
        CaixaDao cdao = new CaixaDao();
@@ -31,6 +32,9 @@ public class FormCaixa extends javax.swing.JDialog {
         edSaldoIn.setText("0,00");
        preencherTabela();
        calcularCaixa();
+
+        
+
     }
 
     /**
@@ -236,7 +240,7 @@ public class FormCaixa extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
