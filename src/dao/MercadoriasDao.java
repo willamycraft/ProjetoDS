@@ -32,7 +32,8 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
     
      public void atualizar(Mercadorias d){
     Connection con = Conectar.getconectar();
-    String sql = "update Mercadorias set quant_mec,data_merc,hora_merc, cod_prod_fk,cod_fun_fk where cod_merc=?";
+    String sql = "update Mercadorias set quant_merc=?, data_merc=?, hora_merc=?, cod_prod_fk=?, cod_fun_fk=? where cod_merc=?";
+    
      try (PreparedStatement stm = con.prepareStatement(sql)) {
        
          stm.setInt(1, d.getQuant_merc());
@@ -133,7 +134,24 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
       
       
       
+     public void chamarId(Mercadorias d){
+    Connection con = Conectar.getconectar();
+    String sql = "select funcionario.cod_fun mercadorias where funcionario.cod_fun = merdadorias.cod_fun_fk";
+    String sql2 = "select Produto.cod_prod mercadorias where Produto.cod_prod = merdadorias.cod_prod_fk";
+     try (PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)) {
+       
+         stm.setInt(1, d.getCod_fun_fk());
+         stm2.setInt(1, d.getCod_prod_fk());
       
+         stm.executeUpdate();
+         stm.close();
+         con.close();
+         
+     }catch(Exception ex){
+         
+     }
+    
+}
       
     
 }
