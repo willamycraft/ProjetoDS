@@ -21,7 +21,7 @@ public class FormReceberContas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         preencherTabela();
-        btAtualizar.setVisible(false);
+        abandonado.setVisible(false);
     }
 
     /**
@@ -45,7 +45,7 @@ public class FormReceberContas extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         btSalvar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
-        btAtualizar = new javax.swing.JButton();
+        abandonado = new javax.swing.JButton();
         edId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -63,49 +63,49 @@ public class FormReceberContas extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Hora:");
+        jLabel2.setText("abandonado");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Valor:");
+        jLabel3.setText("abandonado");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Dia:");
+        jLabel4.setText("abandonado");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("Id da Venda:");
+        jLabel5.setText("abandonado");
 
-        btSalvar.setText("Salvar");
+        btSalvar.setText("abandonado");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSalvarActionPerformed(evt);
             }
         });
 
-        btCancelar.setText("Cancelar");
+        btCancelar.setText("abandonado");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCancelarActionPerformed(evt);
             }
         });
 
-        btAtualizar.setText("Atualizar");
-        btAtualizar.addActionListener(new java.awt.event.ActionListener() {
+        abandonado.setText("abandonado");
+        abandonado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAtualizarActionPerformed(evt);
+                abandonadoActionPerformed(evt);
             }
         });
 
         edId.setEditable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("ID:");
+        jLabel1.setText("abandonado");
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 0));
         jPanel6.setForeground(new java.awt.Color(0, 204, 51));
 
         jLabel11.setFont(new java.awt.Font("Microsoft Himalaya", 1, 48)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Receber Contas");
+        jLabel11.setText("ABANDONADO");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -131,7 +131,7 @@ public class FormReceberContas extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(abandonado, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -183,21 +183,21 @@ public class FormReceberContas extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(abandonado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
-        jTabbedPane1.addTab("Receber Contas", jPanel1);
+        jTabbedPane1.addTab("abandonado", jPanel1);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Pesquisar:");
+        jLabel6.setText("abandonado");
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Valor", "Hora", "Dia", "Cod_Ven"
+                "abandonado", "abandonado", "abandonado", "abandonado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -210,23 +210,23 @@ public class FormReceberContas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabela);
 
-        btNovo.setText("Novo");
+        btNovo.setText("abandonado");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
             }
         });
 
-        btEditar.setText("Editar");
+        btEditar.setText("abandonado");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
             }
         });
 
-        jButton1.setText("...");
+        jButton1.setText("abandonado");
 
-        btApagar.setText("Apagar");
+        btApagar.setText("abandonado");
         btApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btApagarActionPerformed(evt);
@@ -246,7 +246,7 @@ public class FormReceberContas extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,7 +274,7 @@ public class FormReceberContas extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Listar Contas", jPanel2);
+        jTabbedPane1.addTab("abandonado", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -290,7 +290,7 @@ public class FormReceberContas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
+    private void abandonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abandonadoActionPerformed
        ReceberContas r = new ReceberContas();
        r.setCod_rec(Integer.parseInt(edId.getText()));
        r.setValor_rec(Float.parseFloat(edValor.getText()));
@@ -300,10 +300,10 @@ public class FormReceberContas extends javax.swing.JDialog {
        ReceberContasDao rdao = new ReceberContasDao();
        rdao.atualizar(r);
        jTabbedPane1.setSelectedIndex(1);
-       btAtualizar.setVisible(false);
+       abandonado.setVisible(false);
        btSalvar.setVisible(true);
        preencherTabela();
-    }//GEN-LAST:event_btAtualizarActionPerformed
+    }//GEN-LAST:event_abandonadoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
        ReceberContas r = new ReceberContas();
@@ -319,7 +319,7 @@ public class FormReceberContas extends javax.swing.JDialog {
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
        btSalvar.setVisible(true);
-       btAtualizar.setVisible(false);
+       abandonado.setVisible(false);
        edDia.setText("");
        edHora.setText("");
        edValor.setText("");
@@ -328,7 +328,7 @@ public class FormReceberContas extends javax.swing.JDialog {
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         btSalvar.setVisible(true);
-       btAtualizar.setVisible(false);
+       abandonado.setVisible(false);
        edDia.setText("");
        edHora.setText("");
        edValor.setText("");
@@ -344,7 +344,7 @@ public class FormReceberContas extends javax.swing.JDialog {
         edDia.setText(tabela.getValueAt(opcao, 2).toString());
         edVenda.setText(tabela.getValueAt(opcao, 3).toString());
          jTabbedPane1.setSelectedIndex(0);
-         btAtualizar.setVisible(true);
+         abandonado.setVisible(true);
          btSalvar.setVisible(false);
         }
     }//GEN-LAST:event_btEditarActionPerformed
@@ -413,8 +413,8 @@ public class FormReceberContas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton abandonado;
     private javax.swing.JButton btApagar;
-    private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btNovo;
