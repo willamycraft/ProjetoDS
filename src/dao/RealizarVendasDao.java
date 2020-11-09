@@ -111,13 +111,10 @@ public void deletar(RealizarVendas p){
            
            r.setCod_cli(resultado.getInt("cod_cli_fk"));
            r.setCod_fun(resultado.getInt("cod_fun_fk"));
-           
-           
-           
            r.setNome_prod(resultado2.getString("nome_prod"));
            r.setNome_cli(resultado4.getString("nome_cli"));
            r.setNome_fun(resultado3.getString("nome_fun"));
-        // r.setQuant_ven(resultado.getInt("quant_ven"));
+           r.setQuant_ven(resultado.getInt("quant_ven"));
            listaVendas.add(r);
        }
           stm.close();

@@ -559,11 +559,11 @@ public class FormRVendas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cod_Ven", "Produto", "Valor", "Hora", "Data", "Cliente", "Funcionario"
+                "Cod_Ven", "Produto", "Quant", "Valor", "Hora", "Data", "Cliente", "Funcionario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -579,6 +579,7 @@ public class FormRVendas extends javax.swing.JFrame {
             tabela3.getColumnModel().getColumn(4).setResizable(false);
             tabela3.getColumnModel().getColumn(5).setResizable(false);
             tabela3.getColumnModel().getColumn(6).setResizable(false);
+            tabela3.getColumnModel().getColumn(7).setResizable(false);
         }
 
         btNovo2.setBackground(new java.awt.Color(0, 204, 51));
@@ -625,7 +626,7 @@ public class FormRVendas extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -782,7 +783,7 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -812,7 +813,7 @@ public class FormRVendas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1105,7 +1106,7 @@ edTroco.setText("0");
         DefaultTableModel modelo = (DefaultTableModel) tabela3.getModel();
         modelo.setRowCount(0);
         for (RealizarVendas r : lista) {
-            modelo.addRow(new Object[]{r.getCod_ven(),r.getNome_prod(), r.getValor_ven(),r.getHora_ven() ,r.getData_ven(), r.getNome_cli(), r.getNome_fun()});
+            modelo.addRow(new Object[]{r.getCod_ven(),r.getNome_prod(), r.getQuant_ven(),r.getValor_ven(),r.getHora_ven() ,r.getData_ven(), r.getNome_cli(), r.getNome_fun()});
         }
         
         
