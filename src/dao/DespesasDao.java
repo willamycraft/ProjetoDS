@@ -13,11 +13,13 @@ import utilitario.Conectar;
 public class DespesasDao {
     public void salvar(Despesas d) {
     Connection con = Conectar.getconectar();
-String sql = "INSERT into Despesas (valor_desp, cod_merc_fk) values (?,?) ";
+String sql = "INSERT into Despesas (valor_desp, desc_desp,data_Desp,hora_desp) values (?,?,?,?) ";
     
      try (PreparedStatement stm = con.prepareStatement(sql)) {
-         stm.setFloat(1, d.getValor_desp());
-         stm.setInt(2, d.getCod_merc_fk());
+         stm.setDouble(1, d.getValor_desp());
+         stm.setString(2, d.getDesc_desp());
+         stm.setString(3, d.getData_Desp());
+         stm.setString(4, d.getHora_desp());
          stm.execute();
          stm.close();
          con.close();
@@ -29,11 +31,13 @@ String sql = "INSERT into Despesas (valor_desp, cod_merc_fk) values (?,?) ";
     
      public void atualizar(Despesas d){
     Connection con = Conectar.getconectar();
-    String sql = "update Despesas set valor_desp, cod_merc_fk where cod_desp=?";
+    String sql = "update Despesas set valor_desp, desc_desp,data_Desp,hora_desp where cod_desp=?";
      try (PreparedStatement stm = con.prepareStatement(sql)) {
-          stm.setFloat(1, d.getValor_desp());
-         stm.setInt(2, d.getCod_merc_fk());
-         stm.setInt(3, d.getCod_desp());
+         stm.setDouble(1, d.getValor_desp());
+         stm.setString(2, d.getDesc_desp());
+         stm.setString(3, d.getData_Desp());
+         stm.setString(4, d.getHora_desp());
+         stm.setInt(5, d.getCod_desp());
       
          stm.executeUpdate();
          stm.close();
@@ -71,8 +75,11 @@ String sql = "INSERT into Despesas (valor_desp, cod_merc_fk) values (?,?) ";
        while (resultado.next()) {
            Despesas d = new Despesas();
            d.setCod_desp(resultado.getInt("cod_desp"));
-           d.setValor_desp(resultado.getFloat("valor_desp"));
-           d.setCod_merc_fk(resultado.getInt("cod_merc_fk"));
+           d.setValor_desp(resultado.getDouble("valor_desp"));
+           d.setDesc_desp(resultado.getString("desc_desp"));
+           d.setData_Desp(resultado.getString("data_desp"));
+           d.setHora_desp(resultado.getString("hora_desp"));
+           
            listaDespesas.add(d);
        }
           stm.close();

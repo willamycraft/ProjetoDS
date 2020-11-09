@@ -11,8 +11,8 @@ package mapeamento;
  */
 public class Despesas {
     private int cod_desp;
-    private float valor_desp;
-    private int cod_merc_fk;
+    private double valor_desp;
+    String desc_desp,data_Desp,hora_desp;
 
     public int getCod_desp() {
         return cod_desp;
@@ -22,21 +22,39 @@ public class Despesas {
         this.cod_desp = cod_desp;
     }
 
-    public float getValor_desp() {
+    public double getValor_desp() {
         return valor_desp;
     }
 
-    public void setValor_desp(float valor_desp) {
+    public void setValor_desp(double valor_desp) {
         this.valor_desp = valor_desp;
     }
 
-    public int getCod_merc_fk() {
-        return cod_merc_fk;
+    public String getDesc_desp() {
+        return desc_desp;
     }
 
-    public void setCod_merc_fk(int cod_merc_fk) {
-        this.cod_merc_fk = cod_merc_fk;
+    public void setDesc_desp(String desc_desp) {
+        this.desc_desp = desc_desp;
+    }
+
+    public String getData_Desp() {
+        return data_Desp;
+    }
+
+    public void setData_Desp(String data_Desp) {
+        this.data_Desp = data_Desp;
+    }
+
+    public String getHora_desp() {
+        return hora_desp;
+    }
+
+    public void setHora_desp(String hora_desp) {
+        this.hora_desp = hora_desp;
     }
     
+    
+
     
 }

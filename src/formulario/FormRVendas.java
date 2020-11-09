@@ -40,7 +40,7 @@ public class FormRVendas extends javax.swing.JFrame {
        edIdFun.setText(String.valueOf(f.getCod_fun()));
        
      
-        SimpleDateFormat sdfD = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdfD = new SimpleDateFormat("yyyy/MM/dd");
         SimpleDateFormat sdfH = new SimpleDateFormat("hh:mm");
        edData.setText(sdfD.format(new Date()));
        edHora.setText(sdfH.format(new Date()));
@@ -170,13 +170,15 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         });
 
+        edData.setEditable(false);
         try {
-            edData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            edData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         edData.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
+        edHora.setEditable(false);
         try {
             edHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
