@@ -69,7 +69,6 @@ public class FormCliente extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         btNovo = new javax.swing.JButton();
-        btPesquisa = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -237,7 +236,7 @@ public class FormCliente extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("PESQUISAR:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 83, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
 
         edPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +248,7 @@ public class FormCliente extends javax.swing.JDialog {
                 edPesquisarKeyPressed(evt);
             }
         });
-        jPanel2.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 76, 272, 30));
+        jPanel2.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 272, 30));
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -281,14 +280,6 @@ public class FormCliente extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 352, 112, 49));
-
-        btPesquisa.setText("...");
-        btPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 76, -1, 30));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 0));
         jPanel6.setForeground(new java.awt.Color(0, 204, 51));
@@ -440,10 +431,6 @@ public class FormCliente extends javax.swing.JDialog {
         preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_edPesquisarActionPerformed
 
-    private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-        preencherTabela2(edPesquisar.getText());
-    }//GEN-LAST:event_btPesquisaActionPerformed
-
     private void edPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarKeyPressed
         preencherTabela2(edPesquisar.getText());
     }//GEN-LAST:event_edPesquisarKeyPressed
@@ -515,7 +502,6 @@ public class FormCliente extends javax.swing.JDialog {
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btFechar;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JFormattedTextField edCpf;

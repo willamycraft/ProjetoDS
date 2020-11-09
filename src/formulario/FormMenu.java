@@ -21,6 +21,7 @@ public class FormMenu extends javax.swing.JFrame {
         initComponents();
         lbFunc.setText(f.getNome_fun());
         func = f;
+       lbFunc.setVisible(false);
     }
 
    
@@ -36,7 +37,6 @@ public class FormMenu extends javax.swing.JFrame {
         btCadastrarProd = new javax.swing.JButton();
         btCadastrarDespesas = new javax.swing.JButton();
         btCadastrarCliente = new javax.swing.JButton();
-        btEmitirRelatorios = new javax.swing.JButton();
         lbFunc = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -56,8 +56,6 @@ public class FormMenu extends javax.swing.JFrame {
         mEst = new javax.swing.JMenuItem();
         mPed = new javax.swing.JMenuItem();
         mCaixa2 = new javax.swing.JMenuItem();
-        mContaspag = new javax.swing.JMenuItem();
-        mContasrec = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         mCtt = new javax.swing.JMenuItem();
         mConfig = new javax.swing.JMenu();
@@ -136,15 +134,6 @@ public class FormMenu extends javax.swing.JFrame {
         btCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarClienteActionPerformed(evt);
-            }
-        });
-
-        btEmitirRelatorios.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btEmitirRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/analytics_117818.png"))); // NOI18N
-        btEmitirRelatorios.setText("Relatórios");
-        btEmitirRelatorios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEmitirRelatoriosActionPerformed(evt);
             }
         });
 
@@ -231,7 +220,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu2.add(mCaixa);
 
-        mContas.setText("Contas á prazo");
+        mContas.setText("Despesas");
         mContas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mContasActionPerformed(evt);
@@ -260,17 +249,6 @@ public class FormMenu extends javax.swing.JFrame {
 
         mCaixa2.setText("Caixa");
         jMenu3.add(mCaixa2);
-
-        mContaspag.setText("Contas a pagar/pagas");
-        jMenu3.add(mContaspag);
-
-        mContasrec.setText("Contas a receber/recebidas");
-        mContasrec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mContasrecActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mContasrec);
 
         jMenuBar1.add(jMenu3);
 
@@ -308,63 +286,52 @@ public class FormMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbFunc))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btControlarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btPedirMercadoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btEmitirRelatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btCadastrarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btCadastrarForn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btRealizarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btCadastrarDespesas, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                        .addGap(213, 213, 213)
+                        .addComponent(lbFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btCadastrarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 19, Short.MAX_VALUE))
+                            .addComponent(btRealizarVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastrarFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btControlarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btPedirMercadoria, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastrarDespesas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btCadastrarForn, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btCadastrarForn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btCadastrarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btEmitirRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrarForn)
+                    .addComponent(btCadastrarFunc)
+                    .addComponent(btPedirMercadoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrarProd)
+                    .addComponent(btRealizarVenda)
+                    .addComponent(btControlarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRealizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPedirMercadoria, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCadastrarDespesas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btControlarCaixa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(22, 22, 22))))
+                    .addComponent(btCadastrarDespesas)
+                    .addComponent(btCadastrarCliente)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -425,19 +392,11 @@ public class FormMenu extends javax.swing.JFrame {
         form.setVisible(true);
     }//GEN-LAST:event_btCadastrarDespesasActionPerformed
 
-    private void btEmitirRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEmitirRelatoriosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btEmitirRelatoriosActionPerformed
-
     private void mFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mFuncActionPerformed
         FormFuncionario frame= new FormFuncionario(this, rootPaneCheckingEnabled);
         frame.setLocationRelativeTo(frame);
         frame.setVisible(true);
     }//GEN-LAST:event_mFuncActionPerformed
-
-    private void mContasrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mContasrecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mContasrecActionPerformed
 
     private void mCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCliActionPerformed
         FormCliente frame = new FormCliente(this, rootPaneCheckingEnabled);
@@ -470,7 +429,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mCaixaActionPerformed
 
     private void mContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mContasActionPerformed
-        FormReceberContas form = new FormReceberContas(this, rootPaneCheckingEnabled);
+        FormDespesas form = new FormDespesas (this, rootPaneCheckingEnabled);
         form.setLocationRelativeTo(form);
         form.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mContasActionPerformed
@@ -487,7 +446,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mSairActionPerformed
 
     private void mCttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCttActionPerformed
-       JOptionPane.showMessageDialog(mCtt, "willianotenio@gmail.com");
+       JOptionPane.showMessageDialog(mCtt, "willianotenio@gmail.com, alessandrodnzloss@gmai.com, willamycraft@gmail.com");
     }//GEN-LAST:event_mCttActionPerformed
 
     private void mVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mVendasActionPerformed
@@ -508,7 +467,6 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JButton btCadastrarFunc;
     private javax.swing.JButton btCadastrarProd;
     private javax.swing.JButton btControlarCaixa;
-    private javax.swing.JButton btEmitirRelatorios;
     private javax.swing.JButton btPedirMercadoria;
     private javax.swing.JButton btRealizarVenda;
     private javax.swing.JLabel jLabel1;
@@ -525,8 +483,6 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mCli;
     private javax.swing.JMenu mConfig;
     private javax.swing.JMenuItem mContas;
-    private javax.swing.JMenuItem mContaspag;
-    private javax.swing.JMenuItem mContasrec;
     private javax.swing.JMenuItem mCtt;
     private javax.swing.JMenuItem mDesp;
     private javax.swing.JMenuItem mEst;

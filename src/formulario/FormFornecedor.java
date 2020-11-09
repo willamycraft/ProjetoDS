@@ -271,7 +271,7 @@ public class FormFornecedor extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nome Fant.", "Raz. Social", "CNPJ", "CEP", "Endereço", "Telefone", "E-Mail", "Respon.", "Cidade"
+                "ID", "NOME FANT.", "RAZ. SOCIAL", "CNPJ", "CEP", "ENDEREÇO", "TELEFONE", "E-MAIL", "RESPONS.", "CIDADE"
             }
         ) {
             boolean[] canEdit = new boolean [] {

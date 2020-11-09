@@ -40,8 +40,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Receber Contas">
-                <Property name="tabTitle" type="java.lang.String" value="Receber Contas"/>
+              <JTabbedPaneConstraints tabName="abandonado">
+                <Property name="tabTitle" type="java.lang.String" value="abandonado"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -55,7 +55,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btCancelar" min="-2" pref="93" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btAtualizar" min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="abandonado" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btSalvar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="btCancelar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btAtualizar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="abandonado" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -133,7 +133,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Hora:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="edHora">
@@ -143,7 +143,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Valor:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="edDia">
@@ -153,7 +153,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Dia:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="edVenda">
@@ -163,12 +163,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Id da Venda:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btSalvar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
@@ -176,18 +176,18 @@
             </Component>
             <Component class="javax.swing.JButton" name="btCancelar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCancelarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btAtualizar">
+            <Component class="javax.swing.JButton" name="abandonado">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAtualizarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="abandonadoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="edId">
@@ -200,7 +200,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel6">
@@ -236,7 +236,7 @@
                       <Font name="Microsoft Himalaya" size="48" style="1"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Receber Contas"/>
+                    <Property name="text" type="java.lang.String" value="ABANDONADO"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -246,8 +246,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Listar Contas">
-                <Property name="tabTitle" type="java.lang.String" value="Listar Contas"/>
+              <JTabbedPaneConstraints tabName="abandonado">
+                <Property name="tabTitle" type="java.lang.String" value="abandonado"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -264,7 +264,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextField5" min="-2" pref="170" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
@@ -309,7 +309,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pesquisar:"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -323,10 +323,10 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
-                        <Column editable="false" title="Valor" type="java.lang.Object"/>
-                        <Column editable="false" title="Hora" type="java.lang.Object"/>
-                        <Column editable="true" title="Dia" type="java.lang.Object"/>
-                        <Column editable="true" title="Cod_Ven" type="java.lang.Object"/>
+                        <Column editable="false" title="abandonado" type="java.lang.Object"/>
+                        <Column editable="false" title="abandonado" type="java.lang.Object"/>
+                        <Column editable="true" title="abandonado" type="java.lang.Object"/>
+                        <Column editable="true" title="abandonado" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -362,7 +362,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btNovo">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
@@ -370,7 +370,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btEditar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarActionPerformed"/>
@@ -378,12 +378,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="..."/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btApagar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Apagar"/>
+                <Property name="text" type="java.lang.String" value="abandonado"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btApagarActionPerformed"/>
