@@ -25,6 +25,7 @@ public class CaixaDao {
    List <Caixa> listaReceita  = new ArrayList<>();
    String sql = "select sum(receitas_cai) as Receitas from caixareceitas";
    String sql2 = "select hora_cai,data_cai from caixareceitas";
+   
    try(PreparedStatement stm = con.prepareStatement(sql);
            PreparedStatement stm2 = con.prepareStatement(sql2)
            ){
