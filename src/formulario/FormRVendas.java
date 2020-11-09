@@ -9,6 +9,8 @@ import dao.FuncionarioDao;
 import dao.ProdutoDao;
 import dao.RealizarVendasDao;
 import dao.VendasDao;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -36,6 +38,12 @@ public class FormRVendas extends javax.swing.JFrame {
        btAtualizar.setVisible(false);
        jTextField4.setText(f.getNome_fun());
        edIdFun.setText(String.valueOf(f.getCod_fun()));
+       
+     
+        SimpleDateFormat sdfD = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdfH = new SimpleDateFormat("hh:mm");
+       edData.setText(sdfD.format(new Date()));
+       edHora.setText(sdfH.format(new Date()));
        
     }
 

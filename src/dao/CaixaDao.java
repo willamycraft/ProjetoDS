@@ -24,11 +24,18 @@ public class CaixaDao {
    Connection con = Conectar.getconectar();
    List <Caixa> listaReceita  = new ArrayList<>();
    String sql = "select sum(receitas_cai) as Receitas from caixareceitas";
-   try(PreparedStatement stm = con.prepareStatement(sql)){
+   String sql2 = "select hora_cai,data_cai from caixareceitas";
+   try(PreparedStatement stm = con.prepareStatement(sql);
+           PreparedStatement stm2 = con.prepareStatement(sql2)
+           ){
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
+       ResultSet resultado2 = stm2.executeQuery();
+
+       while (resultado.next()& resultado2.next()) {
            Caixa c = new Caixa();
-           c.setReceitas_cai(resultado.getDouble("Receitas"));     
+           c.setReceitas_cai(resultado.getDouble("Receitas"));
+           c.setData_cai(resultado2.getString("data_cai"));
+           c.setHora_cai(resultado2.getString("hora_cai"));
            listaReceita.add(c);
        }
           stm.close();

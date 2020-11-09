@@ -12,7 +12,27 @@ package mapeamento;
 public class Caixa {
     private int cod_caireceitas;
     private double receitas_cai;
+    private String hora_cai, data_cai;
 
+    public String getHora_cai() {
+        return hora_cai;
+    }
+
+    public void setHora_cai(String hora_cai) {
+        this.hora_cai = hora_cai;
+    }
+
+    public String getData_cai() {
+        return data_cai;
+    }
+
+    public void setData_cai(String data_cai) {
+        this.data_cai = data_cai;
+    }
+    
+    
+    
+    
     public int getCod_caireceitas() {
         return cod_caireceitas;
     }
