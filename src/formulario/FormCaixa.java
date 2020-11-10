@@ -26,12 +26,9 @@ public class FormCaixa extends javax.swing.JDialog {
         float valorTotalDesp;
        Caixa c = new Caixa();
        CaixaDao cdao = new CaixaDao();
-        edDespesas.setText("0,00");
-        edLucro.setText("0,00");
-        edSaldoF.setText("0,00");
-        edSaldoIn.setText("0,00");
-       preencherTabela();
-       calcularCaixa();
+     
+       Receita();
+       Despesa();
 
         
 
@@ -249,7 +246,7 @@ public class FormCaixa extends javax.swing.JDialog {
     
     
     
-     public void preencherTabela(){
+     public void Receita(){
          CaixaDao rdao = new CaixaDao();
          
         List<Caixa> lista = rdao.receitas("");
@@ -258,9 +255,14 @@ public class FormCaixa extends javax.swing.JDialog {
         }
         
      }
-     public void calcularCaixa(){
+     public void Despesa(){
      
-                 
+        CaixaDao rdao = new CaixaDao();
+         
+        List<Caixa> lista = rdao.despesas("");
+        for (Caixa r : lista) {
+           edDespesas.setText(String.valueOf(r.getDespesas_cai()));
+        }           
          
      }
     public static void main(String args[]) {

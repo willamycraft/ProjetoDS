@@ -47,6 +47,33 @@ public class CaixaDao {
   }
    return listaReceita;
   }
+     public List<Caixa> despesas(String nome){
+   Connection con = Conectar.getconectar();
+   List <Caixa> listadespesas  = new ArrayList<>();
+   String sql = "select sum(despesas_cai) as Despesas from caixadespesas";
+   String sql2 = "select hora_caiD,data_caiD from caixadespesas";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql);
+           PreparedStatement stm2 = con.prepareStatement(sql2)
+           ){
+       ResultSet resultado = stm.executeQuery();
+       ResultSet resultado2 = stm2.executeQuery();
+
+       while (resultado.next()& resultado2.next()) {
+           Caixa c = new Caixa();
+           c.setDespesas_cai(resultado.getDouble("Despesas"));
+           c.setData_cai(resultado2.getString("data_caiD"));
+           c.setHora_cai(resultado2.getString("hora_caiD"));
+           listadespesas.add(c);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listadespesas;
+  }
     
     
 
