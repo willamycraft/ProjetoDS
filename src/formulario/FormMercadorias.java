@@ -3,6 +3,7 @@ package formulario;
 import dao.MercadoriasDao;
 import dao.RealizarVendasDao;
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -25,11 +26,17 @@ public class FormMercadorias extends javax.swing.JFrame {
     /**
      * Creates new form FormMercadoriass
      */
-    public FormMercadorias() {
+    public FormMercadorias(Funcionario f) {
         initComponents();
         btAtualizar.setVisible(false);
         preencherTabela();
+        edIdFunc.setText(String.valueOf(f.getCod_fun()));
+        edFuncionario.setText(f.getNome_fun());
        // preencherTabela2();
+        SimpleDateFormat sdfD = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdfH = new SimpleDateFormat("hh:mm");
+       edData.setText(sdfD.format(new Date()));
+       edHora.setText(sdfH.format(new Date()));
     }
 
     /**
@@ -136,6 +143,11 @@ public class FormMercadorias extends javax.swing.JFrame {
 
         edFuncionario.setEditable(false);
         edFuncionario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        edFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edFuncionarioActionPerformed(evt);
+            }
+        });
 
         btFunc.setText("jButton2");
         btFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -526,6 +538,10 @@ public class FormMercadorias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btDeletarActionPerformed
 
+    private void edFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edFuncionarioActionPerformed
+
    public void preencherTabela(){
         MercadoriasDao pdao = new MercadoriasDao();
         List<Mercadorias> lista = pdao.listarTodos("");
@@ -543,38 +559,6 @@ public class FormMercadorias extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormMercadorias().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel asdasd;
