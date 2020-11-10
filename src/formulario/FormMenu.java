@@ -160,7 +160,7 @@ public class FormMenu extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("By: Alessandro, Williamy, William");
+        jLabel1.setText("By: Alessandro, Williamy, Willian");
 
         jMenuBar1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -320,10 +320,11 @@ public class FormMenu extends javax.swing.JFrame {
                     .addComponent(btCadastrarFunc)
                     .addComponent(btPedirMercadoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastrarProd)
-                    .addComponent(btRealizarVenda)
-                    .addComponent(btControlarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btControlarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btCadastrarProd)
+                        .addComponent(btRealizarVenda)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrarDespesas)
@@ -359,7 +360,7 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void btPedirMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPedirMercadoriaActionPerformed
 
-        FormMercadorias form = new FormMercadorias();
+        FormMercadorias form = new FormMercadorias(func);
         form.setLocationRelativeTo(form);
         form.setVisible(rootPaneCheckingEnabled);
 

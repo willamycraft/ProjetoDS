@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import mapeamento.Cliente;
 import mapeamento.VendasTotais;
 import utilitario.Conectar;
 
@@ -113,8 +114,7 @@ String sql = "update  vendas set valortotal_vendas=?, valorpago_vendas=?, valort
   }
    return listaVendas;
   }
-    
-   
+       
 }
 
 
