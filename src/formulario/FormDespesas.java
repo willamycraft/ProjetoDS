@@ -360,7 +360,7 @@ public class FormDespesas extends javax.swing.JDialog {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-               edDespesa.setText("");
+        edDespesa.setText("");
         edCodMerc.setText("");
     }//GEN-LAST:event_btCancelarActionPerformed
 

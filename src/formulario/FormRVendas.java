@@ -9,9 +9,14 @@ import dao.FuncionarioDao;
 import dao.ProdutoDao;
 import dao.RealizarVendasDao;
 import dao.VendasDao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mapeamento.Cliente;
@@ -19,9 +24,14 @@ import mapeamento.Funcionario;
 import mapeamento.Produto;
 import mapeamento.RealizarVendas;
 import mapeamento.VendasTotais;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 import pesquisa.pesquisaCliente;
 import pesquisa.pesquisaProduto;
+import utilitario.Conectar;
 /**
  *
  * @author Will Soares
@@ -113,6 +123,7 @@ public class FormRVendas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
+        btRelatori = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -641,6 +652,13 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btRelatori.setText("Emitir Relatorio");
+        btRelatori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRelatoriActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -654,16 +672,17 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(346, 346, 346))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122)
-                        .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))))
+                .addContainerGap(288, Short.MAX_VALUE)
+                .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(346, 346, 346))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btRelatori)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,10 +696,11 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btNovo2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(btExcluir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btRelatori, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -1061,6 +1081,54 @@ edTroco.setText("0");
     private void edTrocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edTrocoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edTrocoActionPerformed
+
+    private void btRelatoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriActionPerformed
+        String sql = "SELECT\n" +
+"     *,\n" +
+"     funcionario.`cod_fun` AS funcionario_cod_fun,\n" +
+"     funcionario.`nome_fun` AS funcionario_nome_fun,\n" +
+"     funcionario.`cpf_fun` AS funcionario_cpf_fun,\n" +
+"     funcionario.`rg_fun` AS funcionario_rg_fun,\n" +
+"     funcionario.`endereço_fun` AS funcionario_endereço_fun,\n" +
+"     funcionario.`telefone_fun` AS funcionario_telefone_fun,\n" +
+"     funcionario.`email_fun` AS funcionario_email_fun,\n" +
+"     funcionario.`funcao_fun` AS funcionario_funcao_fun,\n" +
+"     funcionario.`departamento_fun` AS funcionario_departamento_fun,\n" +
+"     funcionario.`senha_fun` AS funcionario_senha_fun,\n" +
+"     cliente.`cod_cli` AS cliente_cod_cli,\n" +
+"     cliente.`nome_cli` AS cliente_nome_cli,\n" +
+"     cliente.`cpf_cli` AS cliente_cpf_cli,\n" +
+"     cliente.`rg_cli` AS cliente_rg_cli,\n" +
+"     cliente.`datanasc_cli` AS cliente_datanasc_cli,\n" +
+"     cliente.`endereco_cli` AS cliente_endereco_cli,\n" +
+"     cliente.`telefone_cli` AS cliente_telefone_cli,\n" +
+"     cliente.`email_cli` AS cliente_email_cli,\n" +
+"     cliente.`sexo_cli` AS cliente_sexo_cli,\n" +
+"     produto.`cod_prod` AS produto_cod_prod,\n" +
+"     produto.`nome_prod` AS produto_nome_prod,\n" +
+"     produto.`valor_prod` AS produto_valor_prod,\n" +
+"     produto.`cod_for_fk` AS produto_cod_for_fk\n" +
+"FROM\n" +
+"     `funcionario` funcionario INNER JOIN `venda` venda ON funcionario.`cod_fun` = venda.`cod_fun_fk`\n" +
+"     INNER JOIN `cliente` cliente ON venda.`cod_cli_fk` = cliente.`cod_cli`\n" +
+"     INNER JOIN `produto` produto ON venda.`cod_prod_fk` = produto.`cod_prod`";
+        try {
+            Map param = new HashMap();
+            Connection con = Conectar.getconectar();
+            PreparedStatement prepare = con.prepareStatement(sql);
+            ResultSet res = prepare.executeQuery();
+            JRResultSetDataSource relatResult = new JRResultSetDataSource(res);
+            JasperPrint jpPrint = JasperFillManager.fillReport("C:\\Users\\JONATAS\\Desktop\\Relatorios\\vendas.jasper", param, relatResult);
+            JasperViewer jv = new JasperViewer(jpPrint,false);
+            jv.setVisible(true);
+            jv.toFront();
+            
+           
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_btRelatoriActionPerformed
      public void salvarVenda(){
       RealizarVendasDao rdao = new RealizarVendasDao();
         Funcionario f = new Funcionario();
@@ -1148,6 +1216,7 @@ edTroco.setText("0");
     private javax.swing.JButton btNovo2;
     private javax.swing.JButton btPCliente;
     private javax.swing.JButton btPProd;
+    private javax.swing.JButton btRelatori;
     private javax.swing.JButton btSair;
     private javax.swing.JFormattedTextField edData;
     private javax.swing.JTextField edDesc;
