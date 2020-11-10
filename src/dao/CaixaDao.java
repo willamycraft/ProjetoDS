@@ -78,5 +78,29 @@ public class CaixaDao {
     
 
 
-    
+    /* public List<Caixa> receitasData(String data){
+   Connection con = Conectar.getconectar();
+   List <Caixa> listaReceita  = new ArrayList<>();
+   String sql = "select sum(receitas_cai) as Receitas from caixareceitas where data_cai like'"+data+"%'";
+   
+   try(PreparedStatement stm = con.prepareStatement(sql)
+           ){
+       ResultSet resultado = stm.executeQuery();
+
+       while (resultado.next()) {
+           Caixa c = new Caixa();
+           c.setReceitas_cai(resultado.getDouble("Receitas"));
+  
+           listaReceita.add(c);
+       }
+          stm.close();
+          con.close();
+      
+   }catch(Exception ex){
+       JOptionPane.showMessageDialog(null, ex.getMessage());
+  }
+   return listaReceita;
+  }
+
+*/
 }
