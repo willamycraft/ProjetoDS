@@ -32,23 +32,31 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
     
      public void atualizar(Mercadorias d){
     Connection con = Conectar.getconectar();
-    String sql = "update Mercadorias set quant_merc=?, data_merc=?, hora_merc=?, cod_prod_fk=?, cod_fun_fk=? where cod_merc=?";
-    
+    //String sql = "UPDATE Mercadorias SET quant_merc=?, data_merc=?, hora_merc=?, cod_prod_fk=?, cod_fun_fk=? WHERE cod_merc=?";
+    String sql = "UPDATE Mercadorias SET quant_merc=?, data_merc=?, cod_prod_fk=?, cod_fun_fk=? WHERE cod_merc=?";
+    System.out.println("" + d.getQuant_merc());
+    System.out.println("" + d.getCod_fun_fk());
+    System.out.println("" + d.getCod_merc());
+    System.out.println("" + d.getData_merc());
+
+
      try (PreparedStatement stm = con.prepareStatement(sql)) {
        
          stm.setInt(1, d.getQuant_merc());
          stm.setString(2, d.getData_merc());
-         stm.setString(3, d.getHora_merc());
-         stm.setInt(4, d.getCod_prod_fk());
-         stm.setInt(5, d.getCod_fun_fk());
-         stm.setInt(6, d.getCod_merc());
-      
-         stm.executeUpdate();
+         stm.setInt(3, d.getCod_prod_fk());
+         stm.setInt(4, d.getCod_fun_fk());
+         stm.setInt(5, d.getCod_merc());
+         
+    
+         stm.executeUpdate();         
+         
          stm.close();
+        
          con.close();
          JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
      }catch(Exception ex){
-         JOptionPane.showMessageDialog(null, "error"+ex.getMessage());
+         JOptionPane.showMessageDialog(null, "error"+ex);
      }
     
 }
@@ -134,7 +142,7 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
       
       
       
-     public void chamarId(Mercadorias d){
+         public void chamarId(Mercadorias d){
     Connection con = Conectar.getconectar();
     String sql = "select funcionario.cod_fun mercadorias where funcionario.cod_fun = merdadorias.cod_fun_fk";
     String sql2 = "select Produto.cod_prod mercadorias where Produto.cod_prod = merdadorias.cod_prod_fk";

@@ -360,7 +360,7 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void btPedirMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPedirMercadoriaActionPerformed
 
-        FormMercadorias form = new FormMercadorias(func);
+        FormMercadorias form = new FormMercadorias();
         form.setLocationRelativeTo(form);
         form.setVisible(rootPaneCheckingEnabled);
 

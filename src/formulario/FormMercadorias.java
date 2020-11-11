@@ -2,8 +2,8 @@
 package formulario;
 import dao.MercadoriasDao;
 import dao.RealizarVendasDao;
+import java.awt.Frame;
 import java.sql.Connection;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,17 +26,11 @@ public class FormMercadorias extends javax.swing.JFrame {
     /**
      * Creates new form FormMercadoriass
      */
-    public FormMercadorias(Funcionario f) {
+    public FormMercadorias() {
         initComponents();
         btAtualizar.setVisible(false);
         preencherTabela();
-        edIdFunc.setText(String.valueOf(f.getCod_fun()));
-        edFuncionario.setText(f.getNome_fun());
        // preencherTabela2();
-        SimpleDateFormat sdfD = new SimpleDateFormat("yyyy/MM/dd");
-        SimpleDateFormat sdfH = new SimpleDateFormat("hh:mm");
-       edData.setText(sdfD.format(new Date()));
-       edHora.setText(sdfH.format(new Date()));
     }
 
     /**
@@ -73,6 +67,8 @@ public class FormMercadorias extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        edCodMerc = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -143,11 +139,6 @@ public class FormMercadorias extends javax.swing.JFrame {
 
         edFuncionario.setEditable(false);
         edFuncionario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        edFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edFuncionarioActionPerformed(evt);
-            }
-        });
 
         btFunc.setText("jButton2");
         btFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +203,11 @@ public class FormMercadorias extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(0, 153, 51));
 
+        edCodMerc.setEditable(false);
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setText("ID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -219,21 +215,6 @@ public class FormMercadorias extends javax.swing.JFrame {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btProd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(asdasd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -244,17 +225,9 @@ public class FormMercadorias extends javax.swing.JFrame {
                         .addComponent(edHora, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(4, 4, 4)
-                                .addComponent(edFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8)
+                        .addGap(4, 4, 4)
+                        .addComponent(edFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel10)
                         .addGap(4, 4, 4)
@@ -264,14 +237,47 @@ public class FormMercadorias extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jLabel7)
                         .addGap(4, 4, 4)
-                        .addComponent(edData, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edData, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btProd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(asdasd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edQuant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edCodMerc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 10, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edCodMerc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(asdasd)
                     .addComponent(edQuant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,11 +311,11 @@ public class FormMercadorias extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(edHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -348,11 +354,11 @@ public class FormMercadorias extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CODIGO", "QUANTIDADE", "DATA", "HORA", "FUNCIONARIO", "PRODUTO"
+                "CODIGO", "QUANTIDADE", "DATA", "HORA", "FUNCIONARIO", "PRODUTO", "IDFUNC", "IDMERCA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -360,6 +366,14 @@ public class FormMercadorias extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tabela1);
+        if (tabela1.getColumnModel().getColumnCount() > 0) {
+            tabela1.getColumnModel().getColumn(6).setMinWidth(0);
+            tabela1.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tabela1.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabela1.getColumnModel().getColumn(7).setMinWidth(0);
+            tabela1.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tabela1.getColumnModel().getColumn(7).setMaxWidth(0);
+        }
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 115, 603, 196));
 
@@ -450,6 +464,7 @@ public class FormMercadorias extends javax.swing.JFrame {
         p.setData_merc(edData.getText());
         p.setHora_merc(edHora.getText());
         p.setCod_fun_fk(Integer.parseInt(edIdFunc.getText()));
+        p.setCod_merc(Integer.parseInt(edCodMerc.getText()));
         p.setCod_prod_fk(Integer.parseInt(edIdProd.getText()));
         MercadoriasDao pdao = new MercadoriasDao();
         pdao.atualizar(p);
@@ -459,7 +474,10 @@ public class FormMercadorias extends javax.swing.JFrame {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        
+        edQuant.setText("");
+        edFuncionario.setText("");
+        edHora.setText("");
+        edData.setText("");
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFuncActionPerformed
@@ -507,11 +525,18 @@ public class FormMercadorias extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
          int opcao = tabela1.getSelectedRow();
         if(opcao >= 0){
+            
+        MercadoriasDao pdao = new MercadoriasDao();
+        List<Mercadorias> lista = pdao.listarTodos("");
+        
         
         edQuant.setText(tabela1.getValueAt(opcao, 1).toString());
+        edIdProd.setText(tabela1.getValueAt(opcao, 0).toString());
         edFuncionario.setText(tabela1.getValueAt(opcao, 4).toString());
         edProduto.setText(tabela1.getValueAt(opcao, 5).toString());
+        edCodMerc.setText(tabela1.getValueAt(opcao, 7).toString());
         edHora.setText(tabela1.getValueAt(opcao, 3).toString());
+        edIdFunc.setText(tabela1.getValueAt(opcao, 6).toString());
         edData.setText(tabela1.getValueAt(opcao, 2).toString());
         jTabbedPane1.setSelectedIndex(0);
         btAtualizar.setVisible(true);
@@ -538,18 +563,13 @@ public class FormMercadorias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btDeletarActionPerformed
 
-    private void edFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edFuncionarioActionPerformed
-
    public void preencherTabela(){
         MercadoriasDao pdao = new MercadoriasDao();
         List<Mercadorias> lista = pdao.listarTodos("");
         DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
         modelo.setRowCount(0);
         for (Mercadorias p : lista) {
-
-            modelo.addRow(new Object[]{p.getCod_merc(),p.getQuant_merc(),p.getData_merc(), p.getHora_merc(), p.getNome_fun(),p.getNome_prod()});
+            modelo.addRow(new Object[]{p.getCod_merc(),p.getQuant_merc(),p.getData_merc(), p.getHora_merc(), p.getNome_fun(),p.getNome_prod(), p.getCod_fun_fk(), p.getCod_merc()});
         }
 
 }
@@ -559,6 +579,38 @@ public class FormMercadorias extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormMercadorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FormMercadorias().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel asdasd;
@@ -570,6 +622,7 @@ public class FormMercadorias extends javax.swing.JFrame {
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btProd;
     private javax.swing.JButton btSalvar;
+    private javax.swing.JTextField edCodMerc;
     private javax.swing.JFormattedTextField edData;
     private javax.swing.JTextField edFuncionario;
     private javax.swing.JFormattedTextField edHora;
@@ -583,6 +636,7 @@ public class FormMercadorias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
