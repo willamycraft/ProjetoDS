@@ -71,8 +71,6 @@ public class FormMercadorias extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        edPesquisa = new javax.swing.JTextField();
         btNovo = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -323,11 +321,6 @@ public class FormMercadorias extends javax.swing.JFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel1.setText("PESQUISAR:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 75, -1, -1));
-        jPanel3.add(edPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 275, 27));
-
         btNovo.setBackground(new java.awt.Color(0, 204, 51));
         btNovo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
@@ -474,6 +467,10 @@ public class FormMercadorias extends javax.swing.JFrame {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+
+  edProduto.setText("");
+        edIdProd.setText("");
+        edFuncionario.setText("");
         edQuant.setText("");
         edFuncionario.setText("");
         edHora.setText("");
@@ -514,8 +511,13 @@ public class FormMercadorias extends javax.swing.JFrame {
     }//GEN-LAST:event_edIdProdActionPerformed
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+
+
         btSalvar.setVisible(true);
         btAtualizar.setVisible(false);
+        edProduto.setText("");
+        edIdProd.setText("");
+        
         edQuant.setText("");
         edFuncionario.setText("");
         edHora.setText("");
@@ -628,10 +630,8 @@ public class FormMercadorias extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField edHora;
     private javax.swing.JTextField edIdFunc;
     private javax.swing.JTextField edIdProd;
-    private javax.swing.JTextField edPesquisa;
     private javax.swing.JTextField edProduto;
     private javax.swing.JTextField edQuant;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

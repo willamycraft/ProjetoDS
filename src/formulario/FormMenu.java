@@ -52,10 +52,6 @@ public class FormMenu extends javax.swing.JFrame {
         mCaixa = new javax.swing.JMenuItem();
         mContas = new javax.swing.JMenuItem();
         mVendas = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        mEst = new javax.swing.JMenuItem();
-        mPed = new javax.swing.JMenuItem();
-        mCaixa2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         mCtt = new javax.swing.JMenuItem();
         mConfig = new javax.swing.JMenu();
@@ -237,20 +233,6 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu2.add(mVendas);
 
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Relatórios");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        mEst.setText("Estoque");
-        jMenu3.add(mEst);
-
-        mPed.setText("Pedidos");
-        jMenu3.add(mPed);
-
-        mCaixa2.setText("Caixa");
-        jMenu3.add(mCaixa2);
-
-        jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Suporte");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -474,22 +456,18 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbFunc;
     private javax.swing.JMenuItem mCaixa;
-    private javax.swing.JMenuItem mCaixa2;
     private javax.swing.JMenuItem mCli;
     private javax.swing.JMenu mConfig;
     private javax.swing.JMenuItem mContas;
     private javax.swing.JMenuItem mCtt;
     private javax.swing.JMenuItem mDesp;
-    private javax.swing.JMenuItem mEst;
     private javax.swing.JMenuItem mForn;
     private javax.swing.JMenuItem mFunc;
-    private javax.swing.JMenuItem mPed;
     private javax.swing.JMenuItem mProd;
     private javax.swing.JMenuItem mSair;
     private javax.swing.JMenuItem mVendas;

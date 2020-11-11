@@ -418,7 +418,9 @@ public class FormDespesas extends javax.swing.JDialog {
     }//GEN-LAST:event_btAtualizarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-               edDesc.setText("");
+
+        edHora.setText("");
+        edDesc.setText("");
         edData.setText("");
         edDespesa.setText("");
         edId.setText("");
@@ -447,10 +449,12 @@ public class FormDespesas extends javax.swing.JDialog {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         int opcao = tabela.getSelectedRow();
         if(opcao >= 0){
+            
             edId.setText(tabela.getValueAt(opcao, 0).toString());
             edDespesa.setText(tabela.getValueAt(opcao, 1).toString());
-            edData.setText(tabela.getValueAt(opcao, 2).toString());
-            edHora.setText(tabela.getValueAt(opcao, 3).toString());
+            edDesc.setText(tabela.getValueAt(opcao, 2).toString());
+            edData.setText(tabela.getValueAt(opcao, 3).toString());
+            edHora.setText(tabela.getValueAt(opcao, 4).toString());
             jTabbedPane1.setSelectedIndex(0);
             btAtualizar.setVisible(true);
             btSalvar.setVisible(false);
