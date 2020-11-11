@@ -25,6 +25,7 @@ import mapeamento.Produto;
 import mapeamento.RealizarVendas;
 import mapeamento.VendasTotais;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
@@ -779,6 +780,8 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btRelatori.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btRelatori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/impressora (3).png"))); // NOI18N
         btRelatori.setText("Emitir Relatorio");
         btRelatori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -803,7 +806,7 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(346, 346, 346))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(112, 112, 112)
                 .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1162,7 +1165,7 @@ edTroco.setText("0");
             JasperViewer jv = new JasperViewer(jpPrint,false);
             jv.setVisible(true);
             jv.toFront();
-            
+            JasperExportManager.exportReportToPdfFile(jpPrint, "C:\\Users\\JONATAS\\Desktop\\Relatorios\\RelatorioVenda.pdf");
            
             
         } catch (Exception ex) {
