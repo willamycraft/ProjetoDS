@@ -125,6 +125,8 @@ String sql = "select * from funcionario where cpf_fun=? and senha_fun = MD5(?)";
              f.setCpf_fun(resultado.getString("cpf_fun"));
             f.setRg_fun(resultado.getString("rg_fun"));
              f.setEndereço_fun(resultado.getString("endereço_fun"));
+               f.setFuncao_fun(resultado.getString("funcao_fun"));
+           f.setDepartamento_fun(resultado.getString("departamento_fun"));
       f.setTelefone_fun(resultado.getString("telefone_fun"));
       f.setEmail_fun(resultado.getString("email_fun"));
           }else{

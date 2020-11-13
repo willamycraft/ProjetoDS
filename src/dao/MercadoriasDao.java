@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mapeamento.Mercadorias;
+import mapeamento.RealizarVendas;
 import utilitario.Conectar;
 
 public class MercadoriasDao {
@@ -113,19 +114,34 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
   }
       
       
-     /* public List<Mercadorias> ListarNomeProduto(String nome){
+      
+      
+      
+      
+      
+      /*
+      
+       public List<Mercadorias> chamarQuant(int nome){
+                    Mercadorias d = new Mercadorias();
+                    RealizarVendas v = new RealizarVendas();
    Connection con = Conectar.getconectar();
    List <Mercadorias> listaMercadorias  = new ArrayList<>();
-   String sql2 = "select nome_prod from mercadorias,produto where cod_prod_fk = cod_prod";
-   
-   try(PreparedStatement stm = con.prepareStatement(sql2)){
+   String sql = "select * from mercadorias where mercadorias.cod_prod_fk ="+nome+"";
+
+   try(PreparedStatement stm = con.prepareStatement(sql)){
+     
        ResultSet resultado = stm.executeQuery();
-       while (resultado.next()) {
-           Mercadorias d = new Mercadorias();
-           d.setNome_prod(resultado.getString("nome_prod"));
+      while(resultado.next() ){
            
-           listaMercadorias.add(d);
-       }
+           d.setCod_merc(resultado.getInt("cod_merc"));
+           d.setQuant_merc(resultado.getInt("quant_merc"));
+       
+           d.setCod_prod_fk(resultado.getInt("cod_prod_fk"));
+         
+
+       
+     listaMercadorias.add(d);
+   }
           stm.close();
           con.close();
       
@@ -134,32 +150,14 @@ String sql = "INSERT into Mercadorias (quant_merc,data_merc,hora_merc, cod_prod_
   }
    return listaMercadorias;
   }
-    
+      
+      
+  
+   
       
       */
       
-   
-      
-      
-      
-         public void chamarId(Mercadorias d){
-    Connection con = Conectar.getconectar();
-    String sql = "select funcionario.cod_fun mercadorias where funcionario.cod_fun = merdadorias.cod_fun_fk";
-    String sql2 = "select Produto.cod_prod mercadorias where Produto.cod_prod = merdadorias.cod_prod_fk";
-     try (PreparedStatement stm = con.prepareStatement(sql);PreparedStatement stm2 = con.prepareStatement(sql2)) {
        
-         stm.setInt(1, d.getCod_fun_fk());
-         stm2.setInt(1, d.getCod_prod_fk());
-      
-         stm.executeUpdate();
-         stm.close();
-         con.close();
-         
-     }catch(Exception ex){
-         
-     }
-    
-}
       
     
 }

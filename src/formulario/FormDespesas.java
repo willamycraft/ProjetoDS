@@ -484,12 +484,12 @@ public class FormDespesas extends javax.swing.JDialog {
             PreparedStatement prepare = con.prepareStatement(sql);
             ResultSet res = prepare.executeQuery();
             JRResultSetDataSource relatResult = new JRResultSetDataSource(res);
-            JasperPrint jpPrint = JasperFillManager.fillReport("C:\\Users\\JONATAS\\Desktop\\Relatorios\\despesas.jasper", param, relatResult);
+            JasperPrint jpPrint = JasperFillManager.fillReport("C:\\Users\\T-Gamer\\Desktop\\Relatorios\\despesas.jasper", param, relatResult);
             JasperViewer jv = new JasperViewer(jpPrint,false);
             jv.setVisible(true);
             jv.toFront();
             
-            JasperExportManager.exportReportToPdfFile(jpPrint, "C:\\Users\\JONATAS\\Desktop\\Relatorios\\despesas.pdf");
+            JasperExportManager.exportReportToPdfFile(jpPrint, "C:\\Users\\T-Gamer\\Desktop\\Relatorios\\despesas.pdf");
             
             
             

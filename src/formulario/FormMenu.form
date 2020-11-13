@@ -158,28 +158,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
+          <Component id="jPanel1" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
-                      <Component id="lbFunc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="213" pref="256" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btRealizarVenda" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
                           <Component id="btCadastrarFunc" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btControlarCaixa" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="btPedirMercadoria" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="btCadastrarDespesas" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="vendedor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="gerente" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btControlarCaixa" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="btPedirMercadoria" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="btCadastrarDespesas" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -189,6 +196,12 @@
                   <Component id="btCadastrarCliente" min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbFunc" min="-2" pref="92" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="edFuncao" min="-2" pref="89" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -216,9 +229,15 @@
                   <Component id="btCadastrarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lbFunc" min="-2" pref="16" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lbFunc" alignment="0" pref="20" max="32767" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="vendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="gerente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="edFuncao" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -388,6 +407,18 @@
         </Property>
         <Property name="text" type="java.lang.String" value="By: Alessandro, Williamy, Willian"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="vendedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vendedor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gerente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="edFuncao">
     </Component>
   </SubComponents>
 </Form>

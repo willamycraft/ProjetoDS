@@ -78,7 +78,7 @@ String sql = "update  vendas set valortotal_vendas=?, valorpago_vendas=?, valort
     public List<VendasTotais> listarTodos(String nome){
    Connection con = Conectar.getconectar();
    List <VendasTotais> listaVendas  = new ArrayList<>();
-   String sql = "Select * from vendas";
+   String sql = "Select * from vendas ";
    String sql3 = "select nome_fun from venda,funcionario where cod_fun_fk = cod_fun";
    String sql4 = "select nome_cli from venda,cliente where cod_cli_fk = cod_cli";
 
@@ -115,6 +115,12 @@ String sql = "update  vendas set valortotal_vendas=?, valorpago_vendas=?, valort
    return listaVendas;
   }
        
+    
+    
+    
+    
+    
+     
 }
 
 

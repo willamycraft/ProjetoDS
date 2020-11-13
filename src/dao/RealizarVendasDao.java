@@ -126,6 +126,7 @@ public void deletar(RealizarVendas p){
    return listaVendas;
   }
     
+    
     public List<RealizarVendas> listaTodosprod(String nome){
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listarVendas  = new ArrayList<>();
