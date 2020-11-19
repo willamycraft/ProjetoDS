@@ -108,6 +108,7 @@ public class FormCliente extends javax.swing.JDialog {
 
         btFechar.setBackground(new java.awt.Color(255, 0, 0));
         btFechar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btFechar.setForeground(new java.awt.Color(255, 255, 255));
         btFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
         btFechar.setText("Sair");
         btFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +140,7 @@ public class FormCliente extends javax.swing.JDialog {
 
         btCancelar.setBackground(new java.awt.Color(255, 255, 0));
         btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1492790846-9cancel_84247.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +227,7 @@ public class FormCliente extends javax.swing.JDialog {
 
         btExcluir.setBackground(new java.awt.Color(255, 0, 0));
         btExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btExcluir.setText("Excluir");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -272,6 +275,7 @@ public class FormCliente extends javax.swing.JDialog {
 
         btNovo.setBackground(new java.awt.Color(0, 153, 51));
         btNovo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btNovo.setForeground(new java.awt.Color(255, 255, 255));
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/1490793813-user-interface20_82328 (1).png"))); // NOI18N
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {

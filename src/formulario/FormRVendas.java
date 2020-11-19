@@ -157,6 +157,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btFinalizar.setBackground(new java.awt.Color(0, 255, 0));
         btFinalizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btFinalizar.setForeground(new java.awt.Color(255, 255, 255));
         btFinalizar.setText("Finalizar venda");
         btFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +176,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btCancelar.setBackground(new java.awt.Color(255, 0, 0));
         btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,6 +366,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btSair.setBackground(new java.awt.Color(255, 0, 0));
         btSair.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btSair.setForeground(new java.awt.Color(255, 255, 255));
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -609,6 +612,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btNovo2.setBackground(new java.awt.Color(0, 204, 51));
         btNovo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btNovo2.setForeground(new java.awt.Color(255, 255, 255));
         btNovo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
         btNovo2.setText("Novo");
         btNovo2.addActionListener(new java.awt.event.ActionListener() {
@@ -626,6 +630,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btExcluir2.setBackground(new java.awt.Color(255, 0, 0));
         btExcluir2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btExcluir2.setForeground(new java.awt.Color(255, 255, 255));
         btExcluir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btExcluir2.setText("Excluir");
         btExcluir2.addActionListener(new java.awt.event.ActionListener() {
@@ -666,6 +671,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btRelatori.setBackground(new java.awt.Color(0, 204, 51));
         btRelatori.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btRelatori.setForeground(new java.awt.Color(255, 255, 255));
         btRelatori.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
         btRelatori.setText("Emitir Relatorio");
         btRelatori.addActionListener(new java.awt.event.ActionListener() {
@@ -674,9 +680,10 @@ public class FormRVendas extends javax.swing.JFrame {
             }
         });
 
-        btExcluir3.setBackground(new java.awt.Color(255, 0, 0));
+        btExcluir3.setBackground(new java.awt.Color(204, 204, 0));
         btExcluir3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btExcluir3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
+        btExcluir3.setForeground(new java.awt.Color(255, 255, 255));
+        btExcluir3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/database_refresh_icon_137697.png"))); // NOI18N
         btExcluir3.setText("Atualizar Tabela");
         btExcluir3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
