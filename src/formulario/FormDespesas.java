@@ -14,11 +14,6 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mapeamento.*;
-import net.sf.jasperreports.engine.JRResultSetDataSource;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 import utilitario.Conectar;
 /**
  *
@@ -477,27 +472,7 @@ public class FormDespesas extends javax.swing.JDialog {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btRelatioriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatioriActionPerformed
-        String sql = "SELECT * FROM DESPESAS";
-        try {
-            Map param = new HashMap();
-            Connection con = Conectar.getconectar();
-            PreparedStatement prepare = con.prepareStatement(sql);
-            ResultSet res = prepare.executeQuery();
-            JRResultSetDataSource relatResult = new JRResultSetDataSource(res);
-            JasperPrint jpPrint = JasperFillManager.fillReport("C:\\Users\\T-Gamer\\Desktop\\Relatorios\\despesas.jasper", param, relatResult);
-            JasperViewer jv = new JasperViewer(jpPrint,false);
-            jv.setVisible(true);
-            jv.toFront();
-            
-            JasperExportManager.exportReportToPdfFile(jpPrint, "C:\\Users\\T-Gamer\\Desktop\\Relatorios\\despesas.pdf");
-            
-            
-            
-           
-            
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+
     }//GEN-LAST:event_btRelatioriActionPerformed
 
     /**

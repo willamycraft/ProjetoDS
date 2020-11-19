@@ -25,11 +25,6 @@ import mapeamento.Mercadorias;
 import mapeamento.Produto;
 import mapeamento.RealizarVendas;
 import mapeamento.VendasTotais;
-import net.sf.jasperreports.engine.JRResultSetDataSource;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 
 import pesquisa.pesquisaCliente;
 import pesquisa.pesquisaProduto;
@@ -1158,51 +1153,7 @@ edTroco.setText("0");
     }//GEN-LAST:event_edTrocoActionPerformed
 
     private void btRelatoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriActionPerformed
-   String sql = "SELECT\n" +
-"     *,\n" +
-"     funcionario.`cod_fun` AS funcionario_cod_fun,\n" +
-"     funcionario.`nome_fun` AS funcionario_nome_fun,\n" +
-"     funcionario.`cpf_fun` AS funcionario_cpf_fun,\n" +
-"     funcionario.`rg_fun` AS funcionario_rg_fun,\n" +
-"     funcionario.`endereço_fun` AS funcionario_endereço_fun,\n" +
-"     funcionario.`telefone_fun` AS funcionario_telefone_fun,\n" +
-"     funcionario.`email_fun` AS funcionario_email_fun,\n" +
-"     funcionario.`funcao_fun` AS funcionario_funcao_fun,\n" +
-"     funcionario.`departamento_fun` AS funcionario_departamento_fun,\n" +
-"     funcionario.`senha_fun` AS funcionario_senha_fun,\n" +
-"     cliente.`cod_cli` AS cliente_cod_cli,\n" +
-"     cliente.`nome_cli` AS cliente_nome_cli,\n" +
-"     cliente.`cpf_cli` AS cliente_cpf_cli,\n" +
-"     cliente.`rg_cli` AS cliente_rg_cli,\n" +
-"     cliente.`datanasc_cli` AS cliente_datanasc_cli,\n" +
-"     cliente.`endereco_cli` AS cliente_endereco_cli,\n" +
-"     cliente.`telefone_cli` AS cliente_telefone_cli,\n" +
-"     cliente.`email_cli` AS cliente_email_cli,\n" +
-"     cliente.`sexo_cli` AS cliente_sexo_cli,\n" +
-"     produto.`cod_prod` AS produto_cod_prod,\n" +
-"     produto.`nome_prod` AS produto_nome_prod,\n" +
-"     produto.`valor_prod` AS produto_valor_prod,\n" +
-"     produto.`cod_for_fk` AS produto_cod_for_fk\n" +
-"FROM\n" +
-"     `funcionario` funcionario INNER JOIN `venda` venda ON funcionario.`cod_fun` = venda.`cod_fun_fk`\n" +
-"     INNER JOIN `cliente` cliente ON venda.`cod_cli_fk` = cliente.`cod_cli`\n" +
-"     INNER JOIN `produto` produto ON venda.`cod_prod_fk` = produto.`cod_prod`";
-        try {
-            Map param = new HashMap();
-            Connection con = Conectar.getconectar();
-            PreparedStatement prepare = con.prepareStatement(sql);
-            ResultSet res = prepare.executeQuery();
-            JRResultSetDataSource relatResult = new JRResultSetDataSource(res);
-            JasperPrint jpPrint = JasperFillManager.fillReport("C:\\Users\\T-Gamer\\Desktop\\Relatorios\\RelatorioVendaVenda.jasper", param, relatResult);
-            JasperViewer jv = new JasperViewer(jpPrint,false);
-            jv.setVisible(true);
-            jv.toFront();
-            JasperExportManager.exportReportToPdfFile(jpPrint, "C:\\Users\\T-Gamer\\Desktop\\Relatorios\\RelatorioVendaVenda.pdf");
-           
-            
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btRelatoriActionPerformed
 
     private void edPesquisarTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarTotalKeyReleased
