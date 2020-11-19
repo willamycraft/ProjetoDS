@@ -123,6 +123,7 @@ public class FormRVendas extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btRelatori = new javax.swing.JButton();
         btExcluir3 = new javax.swing.JButton();
+        teste123 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -133,6 +134,7 @@ public class FormRVendas extends javax.swing.JFrame {
         edPesquisarTotal = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        btPesquisar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -609,6 +611,11 @@ public class FormRVendas extends javax.swing.JFrame {
         btNovo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btNovo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
         btNovo2.setText("Novo");
+        btNovo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovo2ActionPerformed(evt);
+            }
+        });
 
         btEditar2.setText("Editar");
         btEditar2.addActionListener(new java.awt.event.ActionListener() {
@@ -690,7 +697,9 @@ public class FormRVendas extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addContainerGap()
+                        .addComponent(teste123, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -709,26 +718,29 @@ public class FormRVendas extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(teste123, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btRelatori, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btExcluir3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btRelatori, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btExcluir3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(55, 55, 55))
         );
 
@@ -768,6 +780,11 @@ public class FormRVendas extends javax.swing.JFrame {
         btNovo1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btNovo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
         btNovo1.setText("Novo");
+        btNovo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovo1ActionPerformed(evt);
+            }
+        });
 
         btEditar1.setText("Editar");
         btEditar1.addActionListener(new java.awt.event.ActionListener() {
@@ -813,6 +830,13 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btPesquisar.setText("Pesquisar Venda");
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -838,17 +862,20 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
+                .addComponent(btPesquisar)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar))
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -856,7 +883,7 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar Vendas Totais", jPanel2);
@@ -1020,8 +1047,10 @@ edIDProd.setText(null);
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
 
 //
-     salvarVendas();
-     salvarVenda();
+    salvarVendas(); 
+    salvarVenda();
+     
+     
         preencherTabela();
         preencherTabela2();
         jTabbedPane1.setSelectedIndex(1);     
@@ -1167,11 +1196,64 @@ preencherTabela2();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluir3ActionPerformed
-     public void salvarVenda(){
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+         
+   int opcao = tabela2.getSelectedRow();
+        if (opcao >= 0) {
+            RealizarVendas p = new RealizarVendas();
+            p.setCod_vendas_fk(Integer.parseInt(tabela2.getValueAt(opcao, 0).toString()));
+            teste123.setText(String.valueOf(tabela2.getValueAt(opcao, 0).toString()));
+            RealizarVendasDao vdao = new RealizarVendasDao();
+            listarPorVenda();
+            jTabbedPane1.setSelectedIndex(1);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void btNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNovo1ActionPerformed
+
+    private void btNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNovo2ActionPerformed
+           public void listarPorVenda(){
+            RealizarVendas p = new RealizarVendas();
+            RealizarVendasDao rdao = new RealizarVendasDao();
+        List<RealizarVendas> lista = rdao.listarPorVenda(Integer.parseInt(teste123.getText()));
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabela3.getModel();
+        modelo.setRowCount(0);
+        for (RealizarVendas r : lista) {
+            modelo.addRow(new Object[]{r.getCod_ven(),r.getNome_prod(), r.getQuant_ven(),r.getValor_ven(),r.getHora_ven() ,r.getData_ven(), r.getNome_cli(), r.getNome_fun()});
+        }
+           }
+    
+    public void salvarVenda(){
+        RealizarVendas r = new RealizarVendas();
+        VendasTotais vtotais = new VendasTotais();
+        int idVenda=0;
+           Connection con = Conectar.getconectar();
+        String Sql = "select cod_vendas from vendas ORDER BY cod_vendas DESC LIMIT 1";
+        try( PreparedStatement stm = con.prepareStatement(Sql);){
+        ResultSet resultado = stm.executeQuery();
+        
+         if(resultado != null && resultado.next()){
+            idVenda = resultado.getInt("cod_vendas");
+            }
+        con.close();
+        stm.close();
+        }catch (Exception ex) {
+         JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+        
       RealizarVendasDao rdao = new RealizarVendasDao();
         Funcionario f = new Funcionario();
         DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
-        RealizarVendas r = new RealizarVendas();
         
         int valormaximo = modelo.getRowCount();
         for  (int opçao = 0;opçao <= valormaximo;){ 
@@ -1180,9 +1262,11 @@ preencherTabela2();
             r.setCod_fun(Integer.parseInt(edIdFun.getText()));
             r.setData_ven(edData.getText());
             r.setHora_ven(edHora.getText());
+            r.setCod_vendas_fk(idVenda);
             r.setCod_prod(Integer.parseInt(tabela1.getValueAt(opçao,0 ).toString()));
             r.setQuant_ven(Integer.parseInt(tabela1.getValueAt(opçao, 2).toString()));
             r.setValor_ven(Float.parseFloat(tabela1.getValueAt(opçao, 4).toString()));
+            
             opçao++;
             
            
@@ -1255,6 +1339,7 @@ preencherTabela2();
     private javax.swing.JButton btNovo2;
     private javax.swing.JButton btPCliente;
     private javax.swing.JButton btPProd;
+    private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btRelatori;
     private javax.swing.JButton btSair;
     private javax.swing.JFormattedTextField edData;
@@ -1309,5 +1394,6 @@ preencherTabela2();
     private javax.swing.JTable tabela1;
     private javax.swing.JTable tabela2;
     private javax.swing.JTable tabela3;
+    private javax.swing.JTextField teste123;
     // End of variables declaration//GEN-END:variables
 }
