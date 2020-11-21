@@ -1231,7 +1231,7 @@ edTroco.setText("0");
             
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
-        }        // TODO add your handling code here:
+        }   
     }//GEN-LAST:event_btRelatoriActionPerformed
 
     private void edPesquisarTotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edPesquisarTotalKeyReleased
