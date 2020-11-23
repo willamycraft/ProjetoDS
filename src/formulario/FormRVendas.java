@@ -1243,7 +1243,7 @@ edTroco.setText("0");
 "FROM\n" +
 "     `funcionario` funcionario INNER JOIN `venda` venda ON funcionario.`cod_fun` = venda.`cod_fun_fk`\n" +
 "     INNER JOIN `cliente` cliente ON venda.`cod_cli_fk` = cliente.`cod_cli`\n" +
-"     INNER JOIN `produto` produto ON venda.`cod_prod_fk` = produto.`cod_prod`";
+"     INNER JOIN `produto` produto ON venda.`cod_prod_fk` = produto.`cod_prod` order by cod_ven";
         try {
             Map param = new HashMap();
             Connection con = Conectar.getconectar();
@@ -1340,7 +1340,26 @@ preencherTabela2();
         DefaultTableModel modelo = (DefaultTableModel) tabela1.getModel();
         
         int valormaximo = modelo.getRowCount();
-        for  (int opçao = 0;opçao <= valormaximo;){ 
+        int opçao = 0;
+        while(opçao <= valormaximo){
+            r.setCod_cli(Integer.parseInt(edIDCli.getText()));
+            r.setCod_fun(Integer.parseInt(edIdFun.getText()));
+            r.setData_ven(edData.getText());
+            r.setHora_ven(edHora.getText());
+            r.setCod_vendas_fk(idVenda);
+            r.setCod_prod(Integer.parseInt(tabela1.getValueAt(opçao,0 ).toString()));
+            r.setQuant_ven(Integer.parseInt(tabela1.getValueAt(opçao, 2).toString()));
+            r.setValor_ven(Float.parseFloat(tabela1.getValueAt(opçao, 4).toString()));
+            
+            opçao++;
+            
+           
+            rdao.salvar(r);
+        }   
+        preencherTabela();
+        
+        
+      /*  for  (int opçao = 0;opçao <= valormaximo;){ 
             
             r.setCod_cli(Integer.parseInt(edIDCli.getText()));
             r.setCod_fun(Integer.parseInt(edIdFun.getText()));
@@ -1358,9 +1377,11 @@ preencherTabela2();
         }   
         preencherTabela();
         //
+        
+        */
    }
     
-    
+   
      public void salvarVendas(){
       VendasDao vdao = new VendasDao();
         VendasTotais t = new VendasTotais();

@@ -89,17 +89,17 @@ public void deletar(RealizarVendas p){
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listaVendas  = new ArrayList<>();
    String sql = "Select * from venda";
-   String sql2 = "select nome_prod from venda,produto where cod_prod_fk = cod_prod";
+   String sql2 = "select nome_prod from venda,produto where cod_prod_fk = cod_prod order by cod_ven";
    String sql3 = "select nome_fun from venda,funcionario where cod_fun_fk = cod_fun";
    String sql4 = "select nome_cli from venda,cliente where cod_cli_fk = cod_cli";
 
    try(PreparedStatement stm = con.prepareStatement(sql) ; PreparedStatement stm2 = con.prepareStatement(sql2);
-         PreparedStatement stm3 = con.prepareStatement(sql3) ; PreparedStatement stm4 = con.prepareStatement(sql4)  ){
+       PreparedStatement stm3 = con.prepareStatement(sql3) ; PreparedStatement stm4 = con.prepareStatement(sql4)  ){
        ResultSet resultado = stm.executeQuery();
        ResultSet resultado2 = stm2.executeQuery();
        ResultSet resultado3 = stm3.executeQuery();
        ResultSet resultado4 = stm4.executeQuery();
-
+       
        
        while (resultado.next() & resultado2.next()& resultado3.next()& resultado4.next()) {
            RealizarVendas r = new RealizarVendas();
@@ -111,6 +111,7 @@ public void deletar(RealizarVendas p){
            
            r.setCod_cli(resultado.getInt("cod_cli_fk"));
            r.setCod_fun(resultado.getInt("cod_fun_fk"));
+           
            r.setNome_prod(resultado2.getString("nome_prod"));
            r.setNome_cli(resultado4.getString("nome_cli"));
            r.setNome_fun(resultado3.getString("nome_fun"));
@@ -129,7 +130,7 @@ public void deletar(RealizarVendas p){
      public List<RealizarVendas> listarPorVenda(int nome){
    Connection con = Conectar.getconectar();
    List <RealizarVendas> listaVendas  = new ArrayList<>();
-   String sql = "Select * from venda where cod_vendas_fk="+nome;
+   String sql = "Select * from venda where cod_vendas_fk="+nome +" order by cod_ven";
    String sql2 = "select nome_prod from venda,produto where (cod_prod_fk = cod_prod)  ";
    String sql3 = "select nome_fun from venda,funcionario where (cod_fun_fk = cod_fun) ";
    String sql4 = "select nome_cli from venda,cliente where (cod_cli_fk = cod_cli) ";
@@ -137,7 +138,7 @@ public void deletar(RealizarVendas p){
    try(PreparedStatement stm = con.prepareStatement(sql) ; PreparedStatement stm2 = con.prepareStatement(sql2);
          PreparedStatement stm3 = con.prepareStatement(sql3) ; PreparedStatement stm4 = con.prepareStatement(sql4)  ){
        RealizarVendas r = new RealizarVendas();
-      // stm.setInt(1, r.getCod_vendas_fk());
+  
        ResultSet resultado = stm.executeQuery();
        ResultSet resultado2 = stm2.executeQuery();
        ResultSet resultado3 = stm3.executeQuery();
