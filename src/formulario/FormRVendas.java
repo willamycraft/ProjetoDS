@@ -127,6 +127,7 @@ public class FormRVendas extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         btPesquisar = new javax.swing.JButton();
+        btExcluir4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela3 = new javax.swing.JTable();
@@ -623,6 +624,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btNovo1.setBackground(new java.awt.Color(0, 153, 51));
         btNovo1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btNovo1.setForeground(new java.awt.Color(255, 255, 255));
         btNovo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mbricartadd_99553.png"))); // NOI18N
         btNovo1.setText("Novo");
         btNovo1.addActionListener(new java.awt.event.ActionListener() {
@@ -640,6 +642,7 @@ public class FormRVendas extends javax.swing.JFrame {
 
         btExcluir1.setBackground(new java.awt.Color(255, 0, 0));
         btExcluir1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btExcluir1.setForeground(new java.awt.Color(255, 255, 255));
         btExcluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_4219.png"))); // NOI18N
         btExcluir1.setText("Excluir");
         btExcluir1.addActionListener(new java.awt.event.ActionListener() {
@@ -675,10 +678,22 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btPesquisar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/analytics_117818.png"))); // NOI18N
         btPesquisar.setText("Pesquisar Venda");
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarActionPerformed(evt);
+            }
+        });
+
+        btExcluir4.setBackground(new java.awt.Color(204, 204, 0));
+        btExcluir4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btExcluir4.setForeground(new java.awt.Color(255, 255, 255));
+        btExcluir4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/database_refresh_icon_137697.png"))); // NOI18N
+        btExcluir4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluir4ActionPerformed(evt);
             }
         });
 
@@ -709,17 +724,21 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addComponent(btPesquisar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btExcluir4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edPesquisarTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btPesquisar))
+                    .addComponent(btExcluir4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -728,7 +747,7 @@ public class FormRVendas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar Vendas Totais", jPanel2);
@@ -1281,6 +1300,10 @@ preencherTabela2();
     private void btNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btNovo2ActionPerformed
+
+    private void btExcluir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluir4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btExcluir4ActionPerformed
            public void listarPorVenda(){
             RealizarVendas p = new RealizarVendas();
             RealizarVendasDao rdao = new RealizarVendasDao();
@@ -1395,6 +1418,7 @@ preencherTabela2();
     private javax.swing.JButton btExcluir1;
     private javax.swing.JButton btExcluir2;
     private javax.swing.JButton btExcluir3;
+    private javax.swing.JButton btExcluir4;
     private javax.swing.JButton btFinalizar;
     private javax.swing.JButton btNovo1;
     private javax.swing.JButton btNovo2;
